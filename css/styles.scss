@@ -80,7 +80,6 @@ section {
 
 // Work experience
 .work-experience {
-    display: flex;
     margin-bottom: 36px;
 }
 
@@ -139,6 +138,10 @@ section {
     section {
         margin: 0 auto;
         max-width: 960px;
+    }
+
+    .work-experience {
+        display: flex;
     }
 
     .avatar {
