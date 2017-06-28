@@ -1,15 +1,4 @@
-.avatar {
-    border-radius: 50%;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-
-    display: block;
-    margin: 40px auto;
-}
-
+// Basic styles
 body {
     margin: 0;
 }
@@ -18,10 +7,11 @@ h1, h2, h3, h4, p {
     font-family: 'Raleway', sans-serif;
 }
 
+// Header
 header {
-    height: 100vh;
-    background-color: #f6f6f6;
     background: url(../img/background.jpg) no-repeat center;
+    background-color: #f6f6f6;
+    height: 100vh;
     margin: 0;
     text-align: center;
 
@@ -40,31 +30,21 @@ header {
     }
 
     h1 {
+        align-self: flex-end;
+        color: rgb(0,53,89);
         font-family: 'Lobster', cursive;
         font-size: 3.5em;
-        color: rgb(0,53,89);
         margin: 10px auto;
-        align-self: flex-end;
     }
 
     h3 {
-        font-weight: bold;
         color: rgb(152,221,237);
-
-        text-transform: uppercase;
-        padding: 2vh 0 0 0;
-        margin: 0;
+        font-weight: bold;
         height: 50vh;
+        margin: 0;
+        padding: 2vh 0 0 0;
+        text-transform: uppercase;
     }
-}
-
-.sexy_line {
-    display:block;
-    border:none;
-    color:white;
-    height:1px;
-    background:black;
-    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#000), to(#fff));
 }
 
 section {
@@ -72,29 +52,49 @@ section {
     margin: 0 20px;
 
     h1 {
-        margin-top: 0;
-        margin-bottom: 48px;
-        text-align: center;
-        font-size: 2.4em;
         color: #7392B7;
+        font-size: 2.4em;
+        margin-bottom: 48px;
+        margin-top: 0;
+        text-align: center;
     }
 
     h2 {
         font-weight: normal;
-        text-align: center;
         padding-bottom: 20px;
+        text-align: center;
     }
 
     p {
-        margin: 20px auto;
         line-height: 1.4em;
+        margin: 20px auto;
     }
 }
 
-
 @media (min-width: 950px) {
     section {
-        max-width: 960px;
         margin: 0 auto;
+        max-width: 960px;
     }
+}
+
+// Components
+.avatar {
+    border-radius: 50%;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    display: block;
+    margin: 40px auto;
+}
+
+.sexy_line {
+    background: black;
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#000), to(#fff));
+    border: none;
+    color: white;
+    display: block;
+    height: 1px;
 }
