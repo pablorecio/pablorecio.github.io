@@ -3,9 +3,14 @@ body {
     margin: 0;
 }
 
-h1, h2, h3, h4, p {
+h1, h2, h3, h4, p, a {
     font-family: 'Raleway', sans-serif;
 }
+
+a:link { color:#7E6B8F; text-decoration: none; }
+a:visited { color:#7E6B8F; text-decoration: none; }
+a:hover { color:#7E6B8F; text-decoration: none; }
+a:active { color:#7E6B8F; text-decoration: underline; }
 
 // Header
 header {
@@ -68,6 +73,49 @@ section {
     p {
         line-height: 1.4em;
         margin: 20px auto;
+    }
+}
+
+// Work experience
+.work-experience {
+    display: flex;
+    margin-bottom: 36px;
+}
+
+.company-and-period {
+    min-width: 260px;
+
+    h2 {
+        font-size: 1.3em;
+        font-weight: bold;
+        padding: 0;
+        margin-bottom: 10px;
+        margin-top: 0;
+    }
+
+    .company-url {
+        font-size: 1.2em;
+    }
+
+    h3 {
+        font-size: 1em;
+        font-weight: normal;
+    }
+}
+
+.job-description {
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    h4 {
+        font-size: 1.3em;
+        margin-top: 0;
+    }
+
+    strong::after {
+        content: " - "
     }
 }
 
