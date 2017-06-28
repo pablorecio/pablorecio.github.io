@@ -1,3 +1,4 @@
 .DS_Store
-css
+_site
 node_modules
+Gemfile.lock
