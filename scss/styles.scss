@@ -25,19 +25,32 @@ header {
     margin: 0;
     text-align: center;
 
+    div {
+        height: 50vh;
+        margin: 0;
+    }
+
+    .top-header {
+        background-color: rgba(152,221,237,0.7);
+        display: flex;
+    }
+
+    .bottom-header {
+        background-color: rgba(0,53,89,0.7);
+    }
+
     h1 {
         font-family: 'Lobster', cursive;
         font-size: 3.5em;
         color: rgb(0,53,89);
-        background-color: rgba(152,221,237,0.7);
-        padding: 38vh 0 2vh;
-        margin: 0;
+        margin: 10px auto;
+        align-self: flex-end;
     }
 
     h3 {
         font-weight: bold;
         color: rgb(152,221,237);
-        background-color: rgba(0,53,89,0.7);
+
         text-transform: uppercase;
         padding: 2vh 0 0 0;
         margin: 0;
