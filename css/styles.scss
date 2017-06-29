@@ -22,7 +22,7 @@ header {
     margin: 0;
     text-align: center;
 
-    div {
+    .half-header {
         height: 50vh;
         margin: 0;
     }
@@ -34,6 +34,9 @@ header {
 
     .bottom-header {
         background-color: rgba(0,53,89,0.7);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     h1 {
@@ -47,7 +50,6 @@ header {
     h3 {
         color: rgb(152,221,237);
         font-weight: bold;
-        height: 50vh;
         margin: 0;
         padding: 2vh 0 0 0;
         text-transform: uppercase;
@@ -73,7 +75,7 @@ section {
     }
 
     p {
-        line-height: 1.4em;
+        line-height: 1.5em;
         margin: 20px auto;
     }
 }
@@ -130,6 +132,41 @@ section {
     -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
     display: block;
     margin: 0 auto;
+}
+
+.arrows {
+    align-self: center;
+    margin-bottom: 24px;
+}
+
+$animation-delay: .1s;
+$arrow-size: 24px;
+
+.scroll-arrow {
+    width: $arrow-size;
+    height: $arrow-size;
+    transform: rotate(45deg);
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    animation: arrow-wave 1s infinite;
+    animation-direction: alternate;
+    @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+            animation-delay: $animation-delay*$i;
+        }
+    }
+}
+
+@keyframes arrow-wave {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 // Desktop specific

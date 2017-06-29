@@ -28,15 +28,21 @@
     </head>
     <body>
         <header>
-            <div class="top-header">
+            <div class="half-header top-header">
                 <h1>pablo recio</h1>
             </div>
-            <div class="bottom-header">
+            <div class="half-header bottom-header">
                 <h3>Hello! I like building cool things!</h3>
+
+                <a href="#about-me" class="arrows">
+                    <div class="scroll-arrow"></div>
+                    <div class="scroll-arrow"></div>
+                    <div class="scroll-arrow"></div>
+                </a>
             </div>
         </header>
 
-        <section>
+        <section id="about-me">
             <h1>About me</h1>
             <img class="avatar"
                  srcset="img/avatar.jpg,
@@ -142,5 +148,15 @@
                 </div>
             </article>
         </section>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        <script type="text/javascript" src="/js/scroll.js"></script>
+
+        <script>
+            var _gaq=[['_setAccount','UA-34386206-1'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+          </script>
     </body>
 </html>
