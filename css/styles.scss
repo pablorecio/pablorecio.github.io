@@ -146,8 +146,8 @@ $arrow-size: 24px;
     width: $arrow-size;
     height: $arrow-size;
     transform: rotate(45deg);
-    border-right: 2px solid white;
-    border-bottom: 2px solid white;
+    border-right: 2px solid #98dded;
+    border-bottom: 2px solid #98dded;
     animation: arrow-wave 1s infinite;
     animation-direction: alternate;
     @for $i from 1 through 3 {
