@@ -43,12 +43,13 @@ header {
         align-self: flex-end;
         color: rgb(0,53,89);
         font-family: 'Lobster', cursive;
-        font-size: 3.5em;
+        font-size: 3em;
         margin: 10px auto;
     }
 
     h3 {
         color: rgb(152,221,237);
+        font-size: 1em;
         font-weight: bold;
         margin: 0;
         padding: 2vh 0 0 0;
@@ -213,6 +214,16 @@ $arrow-size: 24px;
 // Desktop specific
 
 @media (min-width: 950px) {
+    header {
+        h1 {
+            font-size: 3.5em;
+        }
+
+        h3 {
+            font-size: 1.2em;
+        }
+    }
+
     section {
         margin: 0 auto;
         max-width: 960px;
