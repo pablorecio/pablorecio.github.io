@@ -122,6 +122,47 @@ section {
     }
 }
 
+// Footer
+
+footer {
+    background-color: rgb(152,221,237);
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    h3 {
+        color: rgb(0,53,89);
+        font-family: 'Lobster', cursive;
+        font-size: 1.6em;
+        margin: 0;
+        text-align: center;
+    }
+
+    .mail-link {
+        display: block;
+        text-align: center;
+    }
+
+    .social-media {
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+        margin: 0 auto;
+        padding-left: 0;
+        width: 240px;
+
+        a {
+            color: black;
+        }
+    }
+
+    p {
+        padding-top: 48px;
+        text-align: center;
+    }
+}
+
 // Components
 .avatar {
     border-radius: 50%;
@@ -136,7 +177,7 @@ section {
 
 .arrows {
     align-self: center;
-    margin-bottom: 24px;
+    margin-bottom: 96px;
 }
 
 $animation-delay: .1s;
@@ -184,5 +225,9 @@ $arrow-size: 24px;
     .avatar {
         float: right;
         margin-left: 48px;
+    }
+
+    .arrows {
+        margin-bottom: 24px;
     }
 }
