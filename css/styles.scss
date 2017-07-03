@@ -65,7 +65,7 @@ section {
     h1 {
         color: #7392B7;
         font-size: 2.4em;
-        margin: 24px 0;
+        margin: 24px 0 48px;;
         text-align: center;
     }
 
@@ -137,6 +137,7 @@ footer {
         font-family: 'Lobster', cursive;
         font-size: 1.6em;
         margin: 0;
+        padding: 48px 24px 0;
         text-align: center;
     }
 
@@ -159,7 +160,7 @@ footer {
     }
 
     p {
-        padding-top: 48px;
+        padding-top: 24px;
         text-align: center;
     }
 }
