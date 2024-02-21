@@ -5,7 +5,7 @@ body {
     margin: 0;
 }
 
-h1, h2, h3, h4, h5, p, a {
+h1, h2, h3, h4, h5, p, a, li {
     font-family: 'Raleway', sans-serif;
 }
 
@@ -98,12 +98,14 @@ section {
     }
 
     .company-url {
+        padding-bottom: 15px;
         font-size: 1.2em;
     }
 
     h3 {
         font-size: 1em;
         font-weight: normal;
+        margin: 0;
     }
 }
 
@@ -129,6 +131,12 @@ section {
     strong::after {
         content: " - "
     }
+}
+
+#aily ul {
+    list-style-type: disc;
+    padding-left: 40px;
+    line-height: 25px;
 }
 
 // Footer
@@ -183,6 +191,7 @@ footer {
     -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
     display: block;
     margin: 0 auto;
+    transform: scaleX(-1);
 }
 
 .arrows {
