@@ -31,7 +31,7 @@
         posthog.init('phc_Dr4HuSTh5ssM6Gw0Shm5Vh3h0QFyMc0dI7omWNXdghW', {
             api_host: 'https://eu.i.posthog.com',
             defaults: '2025-05-24',
-            person_profiles: 'always', // or 'always' to create profiles for anonymous users as well
+            person_profiles: 'always',
         })
     </script>
     <script>
@@ -237,6 +237,36 @@
             text-shadow: 0 0 6px rgba(34, 255, 136, 0.25);
         }
 
+        /* Collapsible experience cards */
+        .experience-card {
+            cursor: default;
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            box-shadow: 0 0 20px rgba(34, 255, 136, 0.1);
+        }
+
+        .experience-content {
+            display: none;
+            overflow: hidden;
+        }
+
+        .experience-content.open {
+            display: block;
+        }
+
+        .experience-toggle {
+            color: #22FF88;
+            font-size: 1.5rem;
+            transition: none;
+            cursor: pointer;
+        }
+
+        .experience-toggle.open {
+            transform: rotate(180deg);
+        }
+
         /* Badges (chips) */
         .badge {
             background: #0B0F14;
@@ -417,64 +447,75 @@
             </div>
 
             <div class="space-y-8">
-                <div
-                    class="rounded-lg border bg-card text-card-foreground shadow-sm p-6 hover:shadow-md transition-shadow">
+                <div class="experience-card rounded-lg border bg-card text-card-foreground shadow-sm p-6" data-card="0">
                     <div class="flex flex-col space-y-4 md:flex-row md:items-start md:justify-between md:space-y-0">
                         <div class="space-y-2">
                             <h3 class="text-2xl font-semibold leading-none tracking-tight">Senior Data Engineer</h3>
                             <p class="text-lg text-blue-600 font-medium">AilyLabs</p>
                         </div>
-                        <div
-                            class="inline-flex items-center rounded-full border px-3 py-1 text-sm font-semibold transition-colors border-transparent bg-secondary text-secondary-foreground">
-                            2023 - 2024
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="inline-flex items-center rounded-full border px-3 py-1 text-sm font-semibold transition-colors border-transparent bg-secondary text-secondary-foreground">
+                                2023 - 2024
+                            </div>
+                            <span class="experience-toggle">▼</span>
                         </div>
                     </div>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <div class="badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold">
-                            PySpark</div>
-                        <div class="badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold">AWS
+                    <div class="experience-content open">
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <div class="badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold">
+                                PySpark</div>
+                            <div class="badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold">
+                                AWS
+                            </div>
+                            <div class="badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold">
+                                Snowflake</div>
+                            <div class="badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold">
+                                DBT
+                            </div>
                         </div>
-                        <div class="badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold">
-                            Snowflake</div>
-                        <div class="badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold">DBT
-                        </div>
+                        <ul class="mt-4 space-y-2 text-muted-foreground">
+                            <li class="flex items-start gap-2"><span class="bullet mt-1">•</span> Snowflake → Data
+                                Lake integrations and data quality metrics</li>
+                            <li class="flex items-start gap-2"><span class="bullet mt-1">•</span> Automated reporting
+                                to DataDog</li>
+                            <li class="flex items-start gap-2"><span class="bullet mt-1">•</span> Laid groundwork for
+                                customer ingestion API</li>
+                        </ul>
                     </div>
-                    <ul class="mt-4 space-y-2 text-muted-foreground">
-                        <li class="flex items-start gap-2"><span class="bullet mt-1">•</span> Snowflake → Data
-                            Lake integrations and data quality metrics</li>
-                        <li class="flex items-start gap-2"><span class="bullet mt-1">•</span> Automated reporting
-                            to DataDog</li>
-                        <li class="flex items-start gap-2"><span class="bullet mt-1">•</span> Laid groundwork for
-                            customer ingestion API</li>
-                    </ul>
                 </div>
 
-                <div
-                    class="rounded-lg border bg-card text-card-foreground shadow-sm p-6 hover:shadow-md transition-shadow">
+                <div class="experience-card rounded-lg border bg-card text-card-foreground shadow-sm p-6" data-card="1">
                     <div class="flex flex-col space-y-4 md:flex-row md:items-start md:justify-between md:space-y-0">
                         <div class="space-y-2">
                             <h3 class="text-2xl font-semibold leading-none tracking-tight">Senior Data Engineer</h3>
                             <p class="text-lg text-blue-600 font-medium">Hotjar</p>
                         </div>
-                        <div
-                            class="inline-flex items-center rounded-full border px-3 py-1 text-sm font-semibold border-transparent bg-secondary text-secondary-foreground">
-                            2022 - 2023
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="inline-flex items-center rounded-full border px-3 py-1 text-sm font-semibold border-transparent bg-secondary text-secondary-foreground">
+                                2022 - 2023
+                            </div>
+                            <span class="experience-toggle">▼</span>
                         </div>
                     </div>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <div class="badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold">
-                            Redshift</div>
-                        <div class="badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold">
-                            Airflow</div>
-                        <div class="badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold">DBT
+                    <div class="experience-content">
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <div class="badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold">
+                                Redshift</div>
+                            <div class="badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold">
+                                Airflow</div>
+                            <div class="badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold">
+                                DBT
+                            </div>
                         </div>
+                        <ul class="mt-4 space-y-2 text-muted-foreground">
+                            <li class="flex items-start gap-2"><span class="bullet mt-1">•</span> Led data projects
+                                and webhook pipelines</li>
+                            <li class="flex items-start gap-2"><span class="bullet mt-1">•</span> Acting Team Lead
+                                (squad of 4)</li>
+                        </ul>
                     </div>
-                    <ul class="mt-4 space-y-2 text-muted-foreground">
-                        <li class="flex items-start gap-2"><span class="bullet mt-1">•</span> Led data projects
-                            and webhook pipelines</li>
-                        <li class="flex items-start gap-2"><span class="bullet mt-1">•</span> Acting Team Lead
-                            (squad of 4)</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -583,6 +624,68 @@
                 });
             }
         });
+
+        // Experience cards accordion functionality
+        function initExperienceAccordion() {
+            const cards = document.querySelectorAll('.experience-card');
+            const STORAGE_KEY = 'experience-open-card';
+
+            // Get last opened card from localStorage
+            const lastOpenCard = localStorage.getItem(STORAGE_KEY);
+            let currentOpenCard = lastOpenCard ? parseInt(lastOpenCard) : 0;
+
+            // Initialize cards
+            cards.forEach((card, index) => {
+                const content = card.querySelector('.experience-content');
+                const toggle = card.querySelector('.experience-toggle');
+
+                if (index === currentOpenCard) {
+                    content.classList.add('open');
+                    toggle.classList.add('open');
+                } else {
+                    content.classList.remove('open');
+                    toggle.classList.remove('open');
+                }
+
+                // Add click handler ONLY on the toggle arrow
+                if (toggle) {
+                    toggle.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        // Close all other cards
+                        cards.forEach((otherCard, otherIndex) => {
+                            if (otherIndex !== index) {
+                                const otherContent = otherCard.querySelector('.experience-content');
+                                const otherToggle = otherCard.querySelector('.experience-toggle');
+                                if (otherContent) otherContent.classList.remove('open');
+                                if (otherToggle) otherToggle.classList.remove('open');
+                            }
+                        });
+
+                        // Toggle current card
+                        const isOpen = content.classList.contains('open');
+                        if (isOpen) {
+                            content.classList.remove('open');
+                            toggle.classList.remove('open');
+                            currentOpenCard = -1; // No card open
+                        } else {
+                            content.classList.add('open');
+                            toggle.classList.add('open');
+                            currentOpenCard = index;
+                        }
+
+                        // Save to localStorage
+                        localStorage.setItem(STORAGE_KEY, currentOpenCard.toString());
+                    });
+                }
+            });
+        }
+
+        // Initialize accordion when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initExperienceAccordion);
+        } else {
+            initExperienceAccordion();
+        }
     </script>
 </body>
 
