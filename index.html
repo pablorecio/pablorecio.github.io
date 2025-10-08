@@ -285,6 +285,19 @@
             transform: rotate(180deg);
         }
 
+        /* Company logos */
+        .company-logo {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            transition: filter 0.3s ease;
+            filter: grayscale(100%) brightness(0.8);
+        }
+
+        .experience-card:has(.experience-content.open) .company-logo {
+            filter: grayscale(0%) brightness(1);
+        }
+
         /* Work arrangement badges */
         .work-badge {
             padding: 4px 10px;
@@ -494,7 +507,8 @@
             <div class="space-y-8">
                 <div class="experience-card rounded-lg border bg-card text-card-foreground shadow-sm p-6" data-card="0">
                     <div class="grid grid-cols-12 items-center">
-                        <div class="col-span-9">
+                        <div class="col-span-9 flex items-center gap-4">
+                            <img src="img/chess.png" alt="Chess.com" class="company-logo">
                             <h3 class="text-2xl font-semibold leading-none tracking-tight">
                                 Chess.com - <a href="https://chess.com" target="_blank" rel="noreferrer"
                                     class="text-primary hover:text-primary/80 transition-colors">chess.com</a>
@@ -544,7 +558,8 @@
 
                 <div class="experience-card rounded-lg border bg-card text-card-foreground shadow-sm p-6" data-card="1">
                     <div class="grid grid-cols-12 items-center">
-                        <div class="col-span-9">
+                        <div class="col-span-9 flex items-center gap-4">
+                            <img src="img/fitxr.png" alt="FitXR" class="company-logo">
                             <h3 class="text-2xl font-semibold leading-none tracking-tight">
                                 FitXR - <a href="https://fitxr.com" target="_blank" rel="noreferrer"
                                     class="text-primary hover:text-primary/80 transition-colors">fitxr.com</a>
@@ -604,7 +619,8 @@
 
                 <div class="experience-card rounded-lg border bg-card text-card-foreground shadow-sm p-6" data-card="2">
                     <div class="grid grid-cols-12 items-center">
-                        <div class="col-span-9">
+                        <div class="col-span-9 flex items-center gap-4">
+                            <img src="img/aily.png" alt="AilyLabs" class="company-logo">
                             <h3 class="text-2xl font-semibold leading-none tracking-tight">
                                 AilyLabs - <a href="https://ailylabs.com" target="_blank" rel="noreferrer"
                                     class="text-primary hover:text-primary/80 transition-colors">ailylabs.com</a>
@@ -654,7 +670,8 @@
 
                 <div class="experience-card rounded-lg border bg-card text-card-foreground shadow-sm p-6" data-card="3">
                     <div class="grid grid-cols-12 items-center">
-                        <div class="col-span-9">
+                        <div class="col-span-9 flex items-center gap-4">
+                            <img src="img/hotjar.png" alt="Hotjar" class="company-logo">
                             <h3 class="text-2xl font-semibold leading-none tracking-tight">
                                 Hotjar - <a href="https://hotjar.com" target="_blank" rel="noreferrer"
                                     class="text-primary hover:text-primary/80 transition-colors">hotjar.com</a>
@@ -814,7 +831,8 @@
 
                 <div class="experience-card rounded-lg border bg-card text-card-foreground shadow-sm p-6" data-card="4">
                     <div class="grid grid-cols-12 items-center">
-                        <div class="col-span-9">
+                        <div class="col-span-9 flex items-center gap-4">
+                            <img src="img/potato.png" alt="Potato" class="company-logo">
                             <h3 class="text-2xl font-semibold leading-none tracking-tight">
                                 Potato - <a href="https://p.ota.to" target="_blank" rel="noreferrer"
                                     class="text-primary hover:text-primary/80 transition-colors">p.ota.to</a>
