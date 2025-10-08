@@ -167,6 +167,14 @@
             filter: grayscale(100%);
         }
 
+        /* Avatar border wrapper */
+        .avatar-border {
+            border: 2px solid #22FF88;
+            box-shadow: 0 0 8px rgba(34, 255, 136, 0.3);
+            border-radius: 50%;
+            padding: 2px;
+        }
+
         /* Terminal-style buttons */
         .btn-primary {
             background: transparent;
@@ -355,6 +363,7 @@
             text-shadow: 0 0 10px rgba(34, 255, 136, 0.35);
         }
 
+
         @keyframes blink {
 
             0%,
@@ -366,6 +375,26 @@
             100% {
                 opacity: 0;
             }
+        }
+
+        /* Technology icons styling */
+        .tech-icon {
+            filter: invert(1) brightness(1.5) contrast(1.2);
+            transition: filter 0.3s ease;
+        }
+
+        .tech-icon:hover {
+            filter: invert(1) brightness(1.8) contrast(1.4);
+        }
+
+        /* GitHub icon styling */
+        .github-icon {
+            filter: invert(1) brightness(0.8) contrast(1.2);
+        }
+
+        /* Contact icons styling */
+        .contact-icon {
+            filter: invert(1) brightness(0.8) contrast(1.2);
         }
 
 
@@ -444,6 +473,7 @@
                     <a class="nav-link" href="#home">Home</a>
                     <a class="nav-link" href="#experience">Experience</a>
                     <a class="nav-link" href="#stack">Stack</a>
+                    <a class="nav-link" href="#hobbies">Hobbies</a>
                     <a class="nav-link" href="#contact">Contact</a>
                 </nav>
             </div>
@@ -465,9 +495,11 @@
             <div class="flex flex-col items-center text-center space-y-8 animate-in">
                 <div
                     class="rounded-full bg-primary-foreground/10 p-1 backdrop-blur-sm border border-primary-foreground/20">
-                    <img src="img/avatar.jpg" srcset="img/avatar.jpg, img/avatar@2x.jpg 2x, img/avatar@3x.jpg 3x"
-                        alt="Portrait of Pablo Recio"
-                        class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover avatar-bw" />
+                    <div class="avatar-border">
+                        <img src="img/avatar.jpg" srcset="img/avatar.jpg, img/avatar@2x.jpg 2x, img/avatar@3x.jpg 3x"
+                            alt="Portrait of Pablo Recio"
+                            class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover avatar-bw" />
+                    </div>
                 </div>
                 <div class="space-y-4">
                     <h1
@@ -475,12 +507,13 @@
                         Pablo Recio
                     </h1>
                     <p class="mx-auto max-w-[700px] text-xl md:text-2xl" style="color: #DBEAFE;">
-                        Software Engineer / Data Engineer
+                        Staff Software Engineer
                     </p>
                     <p class="mx-auto max-w-[600px] md:text-lg" style="color: #E5E7EB;">
-                        Hey, I'm a software engineer based in Jerez de la Frontera, with over 10 years of experience.
-                        I've spent most of my time crafting web apps with Python, particularly Django and Flask.
-                        Recently, I've been delving into data engineering with PySpark, dbt, and Airflow.
+                        Hey, I'm a senior software engineer based in Jerez de la Frontera, with 15 years of experience.
+                        My background is backend-heavy with Python, plus extensive data engineering expertise.
+                        I'm very product-minded, focusing on building solutions that deliver real business value,
+                        without forgetting software engineering best practices.
                     </p>
                 </div>
                 <div class="flex flex-col gap-4 sm:flex-row">
@@ -508,7 +541,7 @@
                 <div class="experience-card rounded-lg border bg-card text-card-foreground shadow-sm p-6" data-card="0">
                     <div class="grid grid-cols-12 items-center">
                         <div class="col-span-9 flex items-center gap-4">
-                            <img src="img/chess.png" alt="Chess.com" class="company-logo">
+                            <img src="img/companies/chess.png" alt="Chess.com" class="company-logo">
                             <h3 class="text-2xl font-semibold leading-none tracking-tight">
                                 Chess.com - <a href="https://chess.com" target="_blank" rel="noreferrer"
                                     class="text-primary hover:text-primary/80 transition-colors">chess.com</a>
@@ -548,6 +581,8 @@
                                 <ul class="space-y-2 text-muted-foreground">
                                     <li class="flex items-start gap-2"><span class="bullet">•</span> Improved the
                                         reliability and speed of the cheat detection engine for the Fair Play team</li>
+                                    <li class="flex items-start gap-2"><span class="bullet">•</span> Started the project
+                                        to migrate cheat screeners to Kafka</li>
                                     <li class="flex items-start gap-2"><span class="bullet">•</span> Served as an
                                         internal consultant for Python-related topics</li>
                                 </ul>
@@ -559,7 +594,7 @@
                 <div class="experience-card rounded-lg border bg-card text-card-foreground shadow-sm p-6" data-card="1">
                     <div class="grid grid-cols-12 items-center">
                         <div class="col-span-9 flex items-center gap-4">
-                            <img src="img/fitxr.png" alt="FitXR" class="company-logo">
+                            <img src="img/companies/fitxr.png" alt="FitXR" class="company-logo">
                             <h3 class="text-2xl font-semibold leading-none tracking-tight">
                                 FitXR - <a href="https://fitxr.com" target="_blank" rel="noreferrer"
                                     class="text-primary hover:text-primary/80 transition-colors">fitxr.com</a>
@@ -620,7 +655,7 @@
                 <div class="experience-card rounded-lg border bg-card text-card-foreground shadow-sm p-6" data-card="2">
                     <div class="grid grid-cols-12 items-center">
                         <div class="col-span-9 flex items-center gap-4">
-                            <img src="img/aily.png" alt="AilyLabs" class="company-logo">
+                            <img src="img/companies/aily.png" alt="AilyLabs" class="company-logo">
                             <h3 class="text-2xl font-semibold leading-none tracking-tight">
                                 AilyLabs - <a href="https://ailylabs.com" target="_blank" rel="noreferrer"
                                     class="text-primary hover:text-primary/80 transition-colors">ailylabs.com</a>
@@ -671,7 +706,7 @@
                 <div class="experience-card rounded-lg border bg-card text-card-foreground shadow-sm p-6" data-card="3">
                     <div class="grid grid-cols-12 items-center">
                         <div class="col-span-9 flex items-center gap-4">
-                            <img src="img/hotjar.png" alt="Hotjar" class="company-logo">
+                            <img src="img/companies/hotjar.png" alt="Hotjar" class="company-logo">
                             <h3 class="text-2xl font-semibold leading-none tracking-tight">
                                 Hotjar - <a href="https://hotjar.com" target="_blank" rel="noreferrer"
                                     class="text-primary hover:text-primary/80 transition-colors">hotjar.com</a>
@@ -832,7 +867,7 @@
                 <div class="experience-card rounded-lg border bg-card text-card-foreground shadow-sm p-6" data-card="4">
                     <div class="grid grid-cols-12 items-center">
                         <div class="col-span-9 flex items-center gap-4">
-                            <img src="img/potato.png" alt="Potato" class="company-logo">
+                            <img src="img/companies/potato.png" alt="Potato" class="company-logo">
                             <h3 class="text-2xl font-semibold leading-none tracking-tight">
                                 Potato - <a href="https://p.ota.to" target="_blank" rel="noreferrer"
                                     class="text-primary hover:text-primary/80 transition-colors">p.ota.to</a>
@@ -881,12 +916,12 @@
                                         backend developer, became a senior developer and had the chance to lead multiple
                                         projects. Most of these were projects for Google under NDA. However, some of the
                                         work I can show:</li>
-                                    <li class="flex items-start gap-2"><span class="bullet">•</span> <strong>Tate iOS
-                                            app</strong> - Took over another agency's code and delivered important
+                                    <li class="flex items-start gap-2"><span class="bullet">•</span> Tate iOS
+                                        app: Took over another agency's code and delivered important
                                         updates, fixes and additions including bluetooth beacons integration for gallery
                                         localization alongside an Android sister app.</li>
-                                    <li class="flex items-start gap-2"><span class="bullet">•</span> <strong>TT
-                                            International</strong> - A complete revamp of this website for a
+                                    <li class="flex items-start gap-2"><span class="bullet">•</span> TT
+                                        International: A complete revamp of this website for a
                                         London-based investment management company.</li>
                                     <li class="flex items-start gap-2"><span class="bullet">•</span> During my time at
                                         Potato I've also been involved with open source projects like Djangae, and have
@@ -908,61 +943,121 @@
             </div>
             <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
                 <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
-                    <div class="text-4xl">🔷</div><span class="text-sm font-medium text-center">TypeScript</span>
+                    <img src="img/tools/python.svg" alt="Python" class="w-12 h-12 tech-icon"><span
+                        class="text-sm font-medium text-center">Python</span>
                 </div>
                 <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
-                    <div class="text-4xl">🐍</div><span class="text-sm font-medium text-center">Python</span>
+                    <img src="img/tools/dbt.svg" alt="dbt" class="w-12 h-12 tech-icon"><span
+                        class="text-sm font-medium text-center">dbt</span>
                 </div>
                 <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
-                    <div class="text-4xl">⚛️</div><span class="text-sm font-medium text-center">React</span>
+                    <img src="img/tools/snowflake.svg" alt="Snowflake" class="w-12 h-12 tech-icon"><span
+                        class="text-sm font-medium text-center">Snowflake</span>
                 </div>
                 <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
-                    <div class="text-4xl">🎨</div><span class="text-sm font-medium text-center">Tailwind</span>
+                    <img src="img/tools/kafka.svg" alt="Kafka" class="w-12 h-12 tech-icon"><span
+                        class="text-sm font-medium text-center">Kafka</span>
                 </div>
                 <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
-                    <div class="text-4xl">🗄️</div><span class="text-sm font-medium text-center">PostgreSQL</span>
+                    <img src="img/tools/go.svg" alt="Golang" class="w-12 h-12 tech-icon"><span
+                        class="text-sm font-medium text-center">Golang</span>
                 </div>
                 <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
-                    <div class="text-4xl">☁️</div><span class="text-sm font-medium text-center">AWS</span>
+                    <img src="img/tools/posthog.svg" alt="PostHog" class="w-12 h-12 tech-icon"><span
+                        class="text-sm font-medium text-center">PostHog</span>
+                </div>
+                <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
+                    <img src="img/tools/postgresql.svg" alt="PostgreSQL" class="w-12 h-12 tech-icon"><span
+                        class="text-sm font-medium text-center">PostgreSQL</span>
+                </div>
+                <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
+                    <img src="img/tools/nextdotjs.svg" alt="Next.js" class="w-12 h-12 tech-icon"><span
+                        class="text-sm font-medium text-center">Next.js</span>
+                </div>
+                <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
+                    <img src="img/tools/typescript.svg" alt="TypeScript" class="w-12 h-12 tech-icon"><span
+                        class="text-sm font-medium text-center">TypeScript</span>
+                </div>
+                <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
+                    <img src="img/tools/docker.svg" alt="Docker" class="w-12 h-12 tech-icon"><span
+                        class="text-sm font-medium text-center">Docker</span>
+                </div>
+                <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
+                    <img src="img/tools/kubernetes.svg" alt="Kubernetes" class="w-12 h-12 tech-icon"><span
+                        class="text-sm font-medium text-center">Kubernetes</span>
+                </div>
+                <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
+                    <img src="img/tools/terraform.svg" alt="Terraform" class="w-12 h-12 tech-icon"><span
+                        class="text-sm font-medium text-center">Terraform</span>
                 </div>
             </div>
         </div>
     </section>
 
-
+    <section id="hobbies" class="py-24 bg-background">
+        <div class="container max-w-6xl mx-auto px-4">
+            <div class="flex flex-col items-center text-center mb-16">
+                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Hobbies & Interests
+                </h2>
+            </div>
+            <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+                <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
+                    <div class="text-4xl">🏋️</div><span class="text-sm font-medium text-center">Crossfit</span>
+                </div>
+                <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
+                    <div class="text-4xl">🎮</div><span class="text-sm font-medium text-center">Videogames</span>
+                </div>
+                <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
+                    <div class="text-4xl">👨‍🍳</div><span class="text-sm font-medium text-center">Cooking</span>
+                </div>
+                <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
+                    <div class="text-4xl">📸</div><span class="text-sm font-medium text-center">Photography</span>
+                </div>
+                <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
+                    <div class="text-4xl">🚀</div><span class="text-sm font-medium text-center">Fantasy & Sci-Fi</span>
+                </div>
+                <div class="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground">
+                    <div class="text-4xl">🎸</div><span class="text-sm font-medium text-center">Rock & Metal</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="contact" class="py-24 bg-background">
         <div class="container max-w-4xl mx-auto px-4">
             <div class="flex flex-col items-center text-center mb-16">
-                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Let’s Work Together</h2>
+                <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Contact Information</h2>
             </div>
             <div class="flex justify-center">
                 <div class="space-y-8 max-w-2xl">
-                    <h3 class="text-2xl font-bold text-center">Contact Information</h3>
                     <div class="grid gap-6 sm:grid-cols-2">
-                        <div class="flex items-center space-x-4"><span class="text-2xl">📧</span>
+                        <div class="flex items-center space-x-4"><img src="img/tools/gmail.svg" alt="Email"
+                                class="w-8 h-8 contact-icon">
                             <div>
                                 <p class="font-semibold text-foreground/80">Email</p>
                                 <p class="text-foreground/80"><a href="mailto:pablo@recio.me">pablo@recio.me</a>
                                 </p>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-4"><span class="text-2xl">📍</span>
+                        <div class="flex items-center space-x-4"><img src="img/tools/googlemaps.svg" alt="Location"
+                                class="w-8 h-8 contact-icon">
                             <div>
                                 <p class="font-semibold text-foreground/80">Location</p>
                                 <p class="text-foreground/80"><a
                                         href="https://en.wikipedia.org/wiki/Jerez_de_la_Frontera" target="_blank"
-                                        rel="noreferrer">Jerez de la Frontera, Spain</a></p>
+                                        rel="noreferrer">Jerez, Andalusia, Spain</a></p>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-4"><span class="text-2xl">💼</span>
+                        <div class="flex items-center space-x-4"><img src="img/tools/linkedin.svg" alt="LinkedIn"
+                                class="w-8 h-8 contact-icon">
                             <div>
                                 <p class="font-semibold text-foreground/80">LinkedIn</p>
                                 <p class="text-foreground/80"><a href="https://www.linkedin.com/in/pablorecio"
                                         target="_blank" rel="noreferrer">linkedin.com/in/pablorecio</a></p>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-4"><span class="text-2xl">🐙</span>
+                        <div class="flex items-center space-x-4"><img src="img/tools/github.svg" alt="GitHub"
+                                class="w-8 h-8 github-icon">
                             <div>
                                 <p class="font-semibold text-foreground/80">GitHub</p>
                                 <p class="text-foreground/80"><a href="https://github.com/pablorecio" target="_blank"
