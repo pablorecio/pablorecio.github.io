@@ -156,6 +156,17 @@ section.bg-background h3,
     text-decoration-color: #22FF88;
 }
 
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #22FF88;
+    box-shadow: 0 0 6px rgba(34, 255, 136, 0.5);
+}
+
 /* Project thumbnails */
 .project-thumb {
     border: 1px solid #1B2330;
@@ -174,10 +185,24 @@ section.bg-background h3,
     border: 1px solid rgba(34, 255, 136, 0.3);
 }
 
+.badge:hover {
+    border-color: #22FF88;
+    box-shadow: 0 0 8px rgba(34, 255, 136, 0.2);
+}
+
+/* Project thumbnail header */
+.project-thumb {
+    background: #0B0F14;
+    border-bottom: 1px solid #1B2330;
+    color: #22FF88;
+    text-shadow: 0 0 8px rgba(34, 255, 136, 0.25);
+}
+
 /* Bullet points */
 .bullet {
     color: #22FF88;
     font-weight: bold;
+    text-shadow: 0 0 6px rgba(34, 255, 136, 0.25);
 }
 
 /* Blinking caret for hero */
@@ -227,22 +252,46 @@ section.bg-background h3,
 .experience-card {
     cursor: default;
     transition: all 0.3s ease;
+    position: relative;
+    background: linear-gradient(135deg, #0B0F14 0%, #1A1F2E 100%);
+}
+
+.experience-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(34, 255, 136, 0.03) 2px,
+            rgba(34, 255, 136, 0.03) 4px);
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+.experience-card:hover {
+    box-shadow: 0 0 20px rgba(34, 255, 136, 0.1);
 }
 
 .experience-content {
-    max-height: 0;
+    display: none;
     overflow: hidden;
-    transition: max-height 0.3s ease;
 }
 
 .experience-content.open {
-    max-height: 1000px;
+    display: block;
 }
 
 .experience-toggle {
-    cursor: pointer;
+    color: #22FF88;
     font-size: 1rem;
     transition: none;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.experience-toggle.open {
+    transform: rotate(180deg);
 }
 
 /* Work arrangement badges */
@@ -301,6 +350,30 @@ section.bg-background h3,
 
 .experience-card {
     position: relative;
+}
+
+/* Mobile fixes for experience section */
+@media (max-width: 768px) {
+    .experience-card h3 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+    
+    .experience-card .grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .experience-card .col-span-9,
+    .experience-card .col-span-3 {
+        grid-column: span 1;
+    }
+    
+    .experience-card .flex.items-center.gap-4 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
 }
 
 @media print {
