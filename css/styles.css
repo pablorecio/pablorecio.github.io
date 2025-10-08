@@ -1,0 +1,326 @@
+/* Custom styles for Pablo Recio's portfolio */
+
+body {
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;700&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'JetBrains Mono', Menlo, Consolas, monospace;
+    letter-spacing: -0.01em;
+}
+
+/* Header tweak for dark theme */
+header.sticky {
+    background: rgba(14, 17, 22, 0.9) !important;
+    border-bottom-color: #1B2330 !important;
+}
+
+.animate-in {
+    animation: animateIn 0.6s ease-out forwards;
+}
+
+@keyframes animateIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gradient-bg {
+    /* Dark terminal-esque surface */
+    background: radial-gradient(1200px 600px at 50% -10%, #11161D 0%, #0E1116 60%, #0B0F14 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle scanline overlay */
+.gradient-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(0deg,
+            rgba(255, 255, 255, 0.03) 0px,
+            rgba(255, 255, 255, 0.03) 1px,
+            transparent 2px,
+            transparent 4px);
+}
+
+/* Headings and links on dark theme */
+section.bg-background h2,
+section.bg-background h3,
+[class*="bg-muted"] h2,
+[class*="bg-muted"] h3,
+.bg-card h2,
+.bg-card h3 {
+    color: #E6E6E6;
+}
+
+.bg-background a,
+[class*="bg-muted"] a,
+.bg-card a {
+    color: #22FF88;
+    transition: color .2s ease, text-shadow .2s ease;
+    text-shadow: 0 0 6px rgba(34, 255, 136, 0.2);
+}
+
+.bg-background a:hover,
+[class*="bg-muted"] a:hover,
+.bg-card a:hover {
+    color: #00E676;
+    text-shadow: 0 0 10px rgba(34, 255, 136, 0.35);
+}
+
+/* Black and white avatar */
+.avatar-bw {
+    filter: grayscale(100%);
+}
+
+/* Avatar border wrapper */
+.avatar-border {
+    border: 2px solid #22FF88;
+    box-shadow: 0 0 8px rgba(34, 255, 136, 0.3);
+    border-radius: 50%;
+    padding: 2px;
+}
+
+/* Terminal-style buttons */
+.btn-primary {
+    background: transparent;
+    color: #22FF88;
+    border: 1px solid #22FF88;
+    box-shadow: inset 0 0 0 0 rgba(34, 255, 136, 0.15);
+}
+
+.btn-primary:hover {
+    background: #22FF88;
+    color: #0B0F14;
+    box-shadow: 0 0 12px rgba(34, 255, 136, 0.35);
+}
+
+.btn-secondary {
+    background: #11161D;
+    color: #E6E6E6;
+    border: 1px solid #1B2330;
+}
+
+.btn-secondary:hover {
+    border-color: #22FF88;
+    color: #22FF88;
+    box-shadow: 0 0 8px rgba(34, 255, 136, 0.2);
+}
+
+/* Subtle neon effect helper */
+.neon {
+    text-shadow: 0 0 8px rgba(34, 255, 136, 0.35);
+}
+
+/* Navbar title typography */
+.nav-title {
+    font-family: 'JetBrains Mono', Menlo, Consolas, monospace;
+    letter-spacing: -0.01em;
+    color: #E6E6E6;
+}
+
+/* Bold terminal navbar */
+.nav-link {
+    color: #9AA4AF !important;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #22FF88 !important;
+    text-shadow: 0 0 8px rgba(34, 255, 136, 0.4);
+}
+
+.nav-link.active {
+    color: #22FF88 !important;
+    text-shadow: 0 0 8px rgba(34, 255, 136, 0.4);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: #22FF88;
+}
+
+/* Project thumbnails */
+.project-thumb {
+    border: 1px solid #1B2330;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-thumb:hover {
+    border-color: #22FF88;
+    box-shadow: 0 0 8px rgba(34, 255, 136, 0.2);
+}
+
+/* Badge styling */
+.badge {
+    background: rgba(34, 255, 136, 0.1);
+    color: #22FF88;
+    border: 1px solid rgba(34, 255, 136, 0.3);
+}
+
+/* Bullet points */
+.bullet {
+    color: #22FF88;
+    font-weight: bold;
+}
+
+/* Blinking caret for hero */
+.caret::after {
+    content: '▌';
+    display: inline-block;
+    margin-left: 6px;
+    color: #22FF88;
+    animation: blink 1.1s steps(1, end) infinite;
+    text-shadow: 0 0 10px rgba(34, 255, 136, 0.35);
+}
+
+@keyframes blink {
+
+    0%,
+    49% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Technology icons styling */
+.tech-icon {
+    filter: invert(1) brightness(1.5) contrast(1.2);
+    transition: filter 0.3s ease;
+}
+
+.tech-icon:hover {
+    filter: invert(1) brightness(1.8) contrast(1.4);
+}
+
+/* GitHub icon styling */
+.github-icon {
+    filter: invert(1) brightness(0.8) contrast(1.2);
+}
+
+/* Contact icons styling */
+.contact-icon {
+    filter: invert(1) brightness(0.8) contrast(1.2);
+}
+
+/* Experience cards */
+.experience-card {
+    cursor: default;
+    transition: all 0.3s ease;
+}
+
+.experience-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.experience-content.open {
+    max-height: 1000px;
+}
+
+.experience-toggle {
+    cursor: pointer;
+    font-size: 1rem;
+    transition: none;
+}
+
+/* Work arrangement badges */
+.work-badge {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 20px;
+    border: 1px solid;
+    flex-shrink: 0;
+    text-align: center;
+    min-width: 60px;
+}
+
+.work-badge.remote {
+    background: rgba(34, 255, 136, 0.1);
+    color: #22FF88;
+    border-color: #22FF88;
+    box-shadow: 0 0 8px rgba(34, 255, 136, 0.2);
+}
+
+.work-badge.onsite {
+    background: rgba(107, 114, 128, 0.1);
+    color: #9CA3AF;
+    border-color: #6B7280;
+}
+
+/* Company logos */
+.company-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+    filter: grayscale(100%) brightness(0.8); /* B&W when collapsed */
+}
+
+.experience-card:has(.experience-content.open) .company-logo {
+    filter: grayscale(0%) brightness(1); /* Color when expanded */
+}
+
+/* Experience cards striped background */
+.experience-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(0deg,
+            rgba(255, 255, 255, 0.02) 0px,
+            rgba(255, 255, 255, 0.02) 1px,
+            transparent 2px,
+            transparent 4px);
+    border-radius: 0.5rem;
+}
+
+.experience-card {
+    position: relative;
+}
+
+@media print {
+
+    /* Simplify for print */
+    .gradient-bg::before,
+    .experience-card::before {
+        display: none;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        border: 1px solid #000;
+        background: transparent !important;
+        color: #000 !important;
+    }
+
+    .tech-icon,
+    .contact-icon,
+    .github-icon {
+        filter: none !important;
+    }
+}
