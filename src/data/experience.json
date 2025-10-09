@@ -1,0 +1,179 @@
+[
+    {
+        "id": "chess",
+        "company": "Chess.com",
+        "website": "https://chess.com",
+        "logo": "/companies/chess.png",
+        "location": "Remote",
+        "period": "May 2025 - Present",
+        "positions": [
+            {
+                "title": "Staff Software Engineer",
+                "period": "May 2025 - Present",
+                "technologies": [
+                    "Python",
+                    "Kafka",
+                    "Kubernetes",
+                    "GCP"
+                ],
+                "achievements": [
+                    "Improved the reliability and speed of the cheat detection engine for the Fair Play team",
+                    "Started the project to migrate cheat screeners to Kafka",
+                    "Served as an internal consultant for Python-related topics"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "fitxr",
+        "company": "FitXR",
+        "website": "https://fitxr.com",
+        "logo": "/companies/fitxr.png",
+        "location": "Remote",
+        "period": "Apr 2024 - May 2025",
+        "positions": [
+            {
+                "title": "Senior Data Engineer",
+                "period": "Apr 2024 - May 2025",
+                "technologies": [
+                    "AWS",
+                    "Snowflake",
+                    "dbt",
+                    "Fivetran",
+                    "Dagster",
+                    "Lightdash"
+                ],
+                "achievements": [
+                    "Assisted Analysts in building foundation models and data ingestion",
+                    "Ensured data quality metrics met standards",
+                    "Led integration with Braze to increase marketing reach",
+                    "Enhanced the subscription data ingestion pipeline for better data reliability"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "aily",
+        "company": "AilyLabs",
+        "website": "https://ailylabs.com",
+        "logo": "/companies/aily.png",
+        "location": "Remote",
+        "period": "Sep 2023 - Feb 2024",
+        "positions": [
+            {
+                "title": "Senior Data Engineer",
+                "period": "Sep 2023 - Feb 2024",
+                "technologies": [
+                    "Snowflake",
+                    "S3",
+                    "Python",
+                    "AWS"
+                ],
+                "achievements": [
+                    "Joined the 'integrations' team to onboard new clients and reduce time-to-insight",
+                    "Developed an in-house solution for copying data from Snowflake to S3"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "hotjar",
+        "company": "Hotjar",
+        "website": "https://hotjar.com",
+        "logo": "/companies/hotjar.png",
+        "location": "Remote",
+        "period": "Nov 2017 - May 2023",
+        "positions": [
+            {
+                "title": "Senior Data Engineer",
+                "period": "Mar 2022 - May 2023",
+                "technologies": [
+                    "AWS",
+                    "Snowflake",
+                    "Docker",
+                    "Kubernetes",
+                    "Helm",
+                    "Pydantic",
+                    "Airflow"
+                ],
+                "achievements": [
+                    "Mentored new data engineers within the team",
+                    "Helped with technical planning and stakeholder management",
+                    "Helped grow the team from 3 to 10 engineers in ~1 year",
+                    "Introduced and maintained data pipelines from producer to third-party consumers",
+                    "Migrating most of our data pipelines from EMR + PySpark to DBT",
+                    "Built pipelines using AWS products (API Gateway, SQS, Lambda, MSK) to support processing events from third-party webhooks",
+                    "Brought Data Engineering and Analytics Engineering teams together for better communication",
+                    "Acting Lead of a team of 3 Data Engineers during the last 6 months"
+                ]
+            },
+            {
+                "title": "Data Engineer",
+                "period": "Oct 2020 - Feb 2022",
+                "technologies": [
+                    "PySpark",
+                    "Redshift",
+                    "AWS",
+                    "dbt",
+                    "Great Expectations",
+                    "Docker",
+                    "Kubernetes",
+                    "Helm",
+                    "Segment",
+                    "Fivetran"
+                ],
+                "achievements": [
+                    "Maintained and introduced new ETLs to enable our data consumers to use it more effectively",
+                    "Helped the Data Engineering team improve their CI and code quality processes",
+                    "Drove the creation of better Data Quality metrics to support our growth as a team"
+                ]
+            },
+            {
+                "title": "Software Engineer",
+                "period": "Nov 2017 - Sep 2020",
+                "technologies": [
+                    "Python",
+                    "Flask",
+                    "ElasticSearch",
+                    "PostgreSQL",
+                    "Redis",
+                    "aiohttp",
+                    "SLI/SLO",
+                    "AWS"
+                ],
+                "achievements": [
+                    "Working in the Product & Engineering department, contributing to the main product, allowing our users to better understand their visitors",
+                    "During these 3 years, worked in several parts of the product like billing, onboarding flow and our own user recordings system, where I was mostly involved in the data storage of those recordings"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "potato",
+        "company": "Potato",
+        "website": "https://p.ota.to",
+        "logo": "/companies/potato.png",
+        "location": "On-site",
+        "period": "Feb 2012 - Sep 2017",
+        "positions": [
+            {
+                "title": "Senior Developer",
+                "period": "Feb 2012 - Sep 2017",
+                "technologies": [
+                    "Python",
+                    "Django",
+                    "Djangae",
+                    "Google App Engine",
+                    "GCE",
+                    "Swift"
+                ],
+                "achievements": [
+                    "Starting as a backend developer, became a senior developer and had the chance to lead multiple projects. Most of these were projects for Google under NDA. However, some of the work I can show:",
+                    "Tate iOS app: Took over another agency's code and delivered important updates, fixes and additions including bluetooth beacons integration for gallery localization alongside an Android sister app.",
+                    "TT International: A complete revamp of this website for a London-based investment management company.",
+                    "During my time at Potato I've also been involved with open source projects like Djangae, and have become very familiar with Google's Cloud platform."
+                ]
+            }
+        ]
+    }
+]

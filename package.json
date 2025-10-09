@@ -1,0 +1,53 @@
+{
+  "name": "pablorecio.github.io",
+  "version": "1.0.0",
+  "description": "Pablo Recio's Portfolio - Staff Software Engineer",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next build",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pablorecio/pablorecio.github.io.git"
+  },
+  "keywords": [
+    "portfolio",
+    "software engineer",
+    "data engineering",
+    "python"
+  ],
+  "author": "Pablo Recio",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/pablorecio/pablorecio.github.io/issues"
+  },
+  "homepage": "https://github.com/pablorecio/pablorecio.github.io#readme",
+  "dependencies": {
+    "@types/node": "^24.7.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.1",
+    "autoprefixer": "^10.4.21",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.545.0",
+    "next": "^15.5.4",
+    "postcss": "^8.5.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^3.4.18",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@next/eslint-plugin-next": "^15.5.4",
+    "@typescript-eslint/eslint-plugin": "^8.46.0",
+    "@typescript-eslint/parser": "^8.46.0",
+    "eslint": "^9.37.0",
+    "eslint-config-next": "^15.5.4"
+  }
+}
