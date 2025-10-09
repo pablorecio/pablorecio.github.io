@@ -1,6 +1,11 @@
 'use client'
 
 import { useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Textarea } from '@/components/ui/textarea'
+import { toast } from 'sonner'
 
 interface FormData {
     name: string
@@ -25,8 +30,6 @@ export default function ContactForm() {
     })
     const [errors, setErrors] = useState<FormErrors>({})
     const [isSubmitting, setIsSubmitting] = useState(false)
-    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
-    const [submitMessage, setSubmitMessage] = useState('')
 
     const validateForm = (): boolean => {
         const newErrors: FormErrors = {}
@@ -67,7 +70,6 @@ export default function ContactForm() {
         }
 
         setIsSubmitting(true)
-        setSubmitStatus('idle')
 
         try {
             const response = await fetch('/api/contact/', {
@@ -81,16 +83,19 @@ export default function ContactForm() {
             const result = await response.json()
 
             if (response.ok) {
-                setSubmitStatus('success')
-                setSubmitMessage('Thank you! Your message has been sent successfully.')
+                toast.success('Message sent successfully!', {
+                    description: 'Thank you for reaching out. I\'ll get back to you soon!',
+                })
                 setFormData({ name: '', email: '', subject: '', message: '' })
             } else {
-                setSubmitStatus('error')
-                setSubmitMessage(result.error || 'Failed to send message. Please try again.')
+                toast.error('Failed to send message', {
+                    description: result.error || 'Please try again later.',
+                })
             }
         } catch (error) {
-            setSubmitStatus('error')
-            setSubmitMessage(`Network error: ${error instanceof Error ? error.message : 'Please check your connection and try again.'}`)
+            toast.error('Network error', {
+                description: error instanceof Error ? error.message : 'Please check your connection and try again.',
+            })
         } finally {
             setIsSubmitting(false)
         }
@@ -98,90 +103,73 @@ export default function ContactForm() {
 
     return (
         <div className="w-full max-w-2xl">
-            <h3 className="text-2xl font-bold mb-6 text-center font-mono">Don't be shy!</h3>
-
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid gap-6 sm:grid-cols-2">
-                    <div>
-                        <input
+                    <div className="space-y-2">
+                        <Input
                             type="text"
                             id="name"
                             name="name"
                             value={formData.name}
                             onChange={handleInputChange}
-                            className={`w-full px-4 py-3 border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-colors ${errors.name ? 'border-red-500' : 'border-border'
-                                }`}
                             placeholder="Let's start with your name"
+                            className={errors.name ? 'border-red-500' : ''}
                         />
                         {errors.name && (
-                            <p className="mt-1 text-sm text-red-500">{errors.name}</p>
+                            <p className="text-sm text-red-500">{errors.name}</p>
                         )}
                     </div>
 
-                    <div>
-                        <input
+                    <div className="space-y-2">
+                        <Input
                             type="email"
                             id="email"
                             name="email"
                             value={formData.email}
                             onChange={handleInputChange}
-                            className={`w-full px-4 py-3 border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-colors ${errors.email ? 'border-red-500' : 'border-border'
-                                }`}
                             placeholder="doggos@example.com"
+                            className={errors.email ? 'border-red-500' : ''}
                         />
                         {errors.email && (
-                            <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+                            <p className="text-sm text-red-500">{errors.email}</p>
                         )}
                     </div>
                 </div>
 
-                <div>
-                    <input
+                <div className="space-y-2">
+                    <Input
                         type="text"
                         id="subject"
                         name="subject"
                         value={formData.subject}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-colors"
                         placeholder="What's on your mind?"
                     />
                 </div>
 
-                <div>
-                    <textarea
+                <div className="space-y-2">
+                    <Textarea
                         id="message"
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
                         rows={6}
-                        className={`w-full px-4 py-3 border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-colors resize-vertical ${errors.message ? 'border-red-500' : 'border-border'
-                            }`}
                         placeholder="Let's talk tech, projects, gaming, doggos..."
+                        className={errors.message ? 'border-red-500' : ''}
                     />
                     {errors.message && (
-                        <p className="mt-1 text-sm text-red-500">{errors.message}</p>
+                        <p className="text-sm text-red-500">{errors.message}</p>
                     )}
                 </div>
 
-                <button
+                <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-accent text-accent-foreground py-3 px-6 rounded-lg font-medium hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="w-full"
+                    size="lg"
                 >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
-
-                {submitStatus === 'success' && (
-                    <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-                        <p className="text-green-800 text-sm">{submitMessage}</p>
-                    </div>
-                )}
-
-                {submitStatus === 'error' && (
-                    <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
-                        <p className="text-red-800 text-sm">{submitMessage}</p>
-                    </div>
-                )}
+                </Button>
             </form>
         </div>
     )

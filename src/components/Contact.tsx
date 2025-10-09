@@ -79,14 +79,13 @@ export default function Contact() {
             <div className="container max-w-6xl mx-auto px-4">
                 <div className="flex flex-col items-center text-center mb-16">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-mono">
-                        Contact Information
+                        Don't be shy!
                     </h2>
                 </div>
                 <div className="grid lg:grid-cols-2 gap-12 items-start">
                     {/* Contact Information - Left Side */}
                     <div className="space-y-8">
                         <div>
-                            <h3 className="text-2xl font-bold mb-6 font-mono">Let's connect</h3>
                             <p className="text-muted-foreground mb-8">
                                 I'm always up for chatting about new projects, fresh opportunities, or the latest in tech and gaming.
                             </p>

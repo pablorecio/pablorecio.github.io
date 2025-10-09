@@ -2,7 +2,6 @@
 import contactData from '@/data/contact.json'
 import experienceData from '@/data/experience.json'
 import hobbiesData from '@/data/hobbies.json'
-import technologiesData from '@/data/technologies.json'
 import skillsData from '@/data/skills.json'
 
 // Generic fetch function that tries API routes first, then falls back to static data
@@ -31,10 +30,6 @@ export const api = {
 
     async getHobbies() {
         return fetchData('/hobbies', hobbiesData)
-    },
-
-    async getTechnologies() {
-        return fetchData('/technologies', technologiesData)
     },
 
     async getSkills() {

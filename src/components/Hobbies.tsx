@@ -2,10 +2,25 @@
 
 import { useState, useEffect } from 'react'
 import { api } from '@/services/api'
+import { Dumbbell, ChefHat, Gamepad2, Camera, Library, HandMetal } from 'lucide-react'
 
 interface Hobby {
     name: string
     emoji: string
+}
+
+// Mapping hobby names to Lucide icons
+const getHobbyIcon = (hobbyName: string) => {
+    const iconMap: { [key: string]: React.ComponentType<any> } = {
+        'Crossfit': Dumbbell,
+        'Cooking': ChefHat,
+        'Videogames': Gamepad2,
+        'Photography': Camera,
+        'Fantasy & Sci-Fi': Library,
+        'Rock & Metal': HandMetal,
+    }
+
+    return iconMap[hobbyName] || Library // Default fallback icon
 }
 
 export default function Hobbies() {
@@ -71,15 +86,20 @@ export default function Hobbies() {
                     </h2>
                 </div>
                 <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-                    {hobbiesData.map((hobby: Hobby, index: number) => (
-                        <div
-                            key={index}
-                            className="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground"
-                        >
-                            <div className="text-4xl">{hobby.emoji}</div>
-                            <span className="text-sm font-medium text-center text-accent">{hobby.name}</span>
-                        </div>
-                    ))}
+                    {hobbiesData.map((hobby: Hobby, index: number) => {
+                        const IconComponent = getHobbyIcon(hobby.name)
+                        return (
+                            <div
+                                key={index}
+                                className="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground hobby-card"
+                            >
+                                <div className="text-4xl">
+                                    <IconComponent className="w-10 h-10 text-accent" />
+                                </div>
+                                <span className="text-sm font-medium text-center text-accent">{hobby.name}</span>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         </section>
