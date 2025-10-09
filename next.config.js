@@ -6,6 +6,15 @@ const nextConfig = {
     images: {
         unoptimized: true
     },
+    // Ensure API routes are properly handled
+    async rewrites() {
+        return [
+            {
+                source: '/api/:path*',
+                destination: '/api/:path*',
+            },
+        ]
+    },
     async headers() {
         const securityHeaders = [
             { key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains; preload' },
