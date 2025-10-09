@@ -7,48 +7,81 @@
 
 @layer base {
     :root {
-        --background: 0 0% 100%;
-        --foreground: 0 0% 3.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 0 0% 3.9%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 3.9%;
-        --primary: 0 0% 9%;
-        --primary-foreground: 0 0% 98%;
-        --secondary: 0 0% 96.1%;
-        --secondary-foreground: 0 0% 9%;
-        --muted: 0 0% 96.1%;
-        --muted-foreground: 0 0% 45.1%;
-        --accent: 0 0% 96.1%;
-        --accent-foreground: 0 0% 9%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 89.8%;
-        --input: 0 0% 89.8%;
-        --ring: 0 0% 3.9%;
+        /* Light theme per request */
+        --background: 44 87% 94%;
+        /* #fdf6e3 */
+        --foreground: 55 52% 39%;
+        /* typography #9a902f */
+        --card: 44 87% 97%;
+        --card-foreground: 55 52% 39%;
+        --popover: 44 87% 97%;
+        --popover-foreground: 55 52% 39%;
+        --primary: 55 52% 39%;
+        /* use typography for headings */
+        --primary-foreground: 44 87% 94%;
+        --secondary: 194 14% 40%;
+        /* stripes/secondary #586e75 */
+        --secondary-foreground: 44 87% 94%;
+        --muted: 44 35% 88%;
+        --muted-foreground: 194 14% 40%;
+        /* #586e75 for secondary text */
+        --accent: 264 26% 51%;
+        /* buttons and accents #7a61a2 */
+        --accent-foreground: 44 87% 94%;
+        --destructive: 0 72% 50%;
+        --destructive-foreground: 44 87% 94%;
+        --border: 44 30% 78%;
+        --input: 44 30% 78%;
+        --ring: 264 26% 51%;
         --radius: 0.5rem;
+
+        /* Helpers for themed backgrounds (light) */
+        --hero-start: 44 87% 94%;
+        --hero-mid: 44 70% 92%;
+        --hero-end: 44 60% 90%;
+        --stripe-color-rgb: 88, 110, 117;
+        /* #586e75 */
+        --card-bg-start: 44 80% 97%;
+        --card-bg-end: 44 60% 90%;
     }
 
     .dark {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 0 0% 98%;
-        --primary-foreground: 0 0% 9%;
-        --secondary: 0 0% 14.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 63.9%;
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
+        /* Existing dark palette */
+        --background: 214 27% 7%;
+        /* #0E1116 */
+        --foreground: 0 0% 90%;
+        /* near-white */
+        --card: 213 28% 8%;
+        /* #11161D */
+        --card-foreground: 0 0% 90%;
+        --popover: 213 28% 8%;
+        --popover-foreground: 0 0% 90%;
+        --primary: 149 100% 56%;
+        /* #22FF88 */
+        --primary-foreground: 210 35% 6%;
+        /* #0B0F14 */
+        --secondary: 210 35% 6%;
+        /* #0B0F14 */
+        --secondary-foreground: 149 100% 56%;
+        --muted: 210 35% 6%;
+        --muted-foreground: 215 9% 63%;
+        /* #9AA4AF */
+        --accent: 149 100% 56%;
+        --accent-foreground: 210 35% 6%;
+        --destructive: 0 63% 31%;
         --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 14.9%;
-        --input: 0 0% 14.9%;
-        --ring: 0 0% 83.1%;
+        --border: 214 26% 15%;
+        /* #1B2330 */
+        --input: 214 26% 15%;
+        --ring: 149 100% 56%;
+
+        /* Helpers for themed backgrounds (dark) */
+        --hero-start: 214 27% 7%;
+        --hero-mid: 214 25% 8%;
+        --hero-end: 210 30% 5%;
+        --stripe-color-rgb: 255, 255, 255;
+        --card-bg-start: 210 35% 6%;
+        --card-bg-end: 221 24% 15%;
     }
 }
 
@@ -88,7 +121,7 @@
 }
 
 .gradient-bg {
-    background: radial-gradient(1200px 600px at 50% -10%, #11161D 0%, #0E1116 60%, #0B0F14 100%);
+    background: radial-gradient(1200px 600px at 50% -10%, hsl(var(--hero-start)) 0%, hsl(var(--hero-mid)) 60%, hsl(var(--hero-end)) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -99,8 +132,8 @@
     inset: 0;
     pointer-events: none;
     background-image: repeating-linear-gradient(0deg,
-            rgba(255, 255, 255, 0.03) 0px,
-            rgba(255, 255, 255, 0.03) 1px,
+            rgba(var(--stripe-color-rgb), 0.12) 0px,
+            rgba(var(--stripe-color-rgb), 0.12) 1px,
             transparent 2px,
             transparent 4px);
 }
@@ -110,8 +143,8 @@
 }
 
 .avatar-border {
-    border: 2px solid #22FF88;
-    box-shadow: 0 0 8px rgba(34, 255, 136, 0.3);
+    border: 2px solid hsl(var(--accent));
+    box-shadow: 0 0 8px hsl(var(--accent) / 0.3);
     border-radius: 50%;
     padding: 2px;
 }
@@ -120,9 +153,9 @@
     content: '▌';
     display: inline-block;
     margin-left: 6px;
-    color: #22FF88;
+    color: hsl(var(--accent));
     animation: blink 1.1s steps(1, end) infinite;
-    text-shadow: 0 0 10px rgba(34, 255, 136, 0.35);
+    text-shadow: 0 0 10px hsl(var(--accent) / 0.35);
 }
 
 @keyframes blink {
@@ -139,12 +172,40 @@
 }
 
 .tech-icon {
-    filter: invert(1) brightness(1.5) contrast(1.2);
-    transition: filter 0.3s ease;
+    /* Avoid flicker when switching filters between theme/hover states */
+    transition: transform 0.2s ease;
 }
 
-.tech-icon:hover {
-    filter: invert(1) brightness(1.8) contrast(1.4);
+/* Icon tint per theme */
+:root .tech-icon {
+    /* approximate #9a902f using CSS filter */
+    filter: brightness(0) saturate(100%) invert(66%) sepia(29%) saturate(557%) hue-rotate(12deg) brightness(86%) contrast(91%);
+}
+
+.tech-card:hover .tech-icon {
+    /* default to accent color on hover in light theme (#7a61a2) */
+    filter: brightness(0) saturate(100%) invert(34%) sepia(14%) saturate(1321%) hue-rotate(228deg) brightness(95%) contrast(92%);
+    transform: translateY(-3px);
+}
+
+.dark .tech-icon {
+    filter: invert(1) brightness(1.5) contrast(1.2);
+}
+
+.dark .tech-card:hover .tech-icon {
+    /* neon green #22FF88 */
+    filter: brightness(0) saturate(100%) invert(73%) sepia(85%) saturate(468%) hue-rotate(83deg) brightness(103%) contrast(102%);
+    transform: translateY(-3px);
+}
+
+/* Tech card text hover to accent in both themes */
+.tech-card span {
+    transition: transform 0.2s ease;
+}
+
+.tech-card:hover span {
+    color: hsl(var(--accent));
+    transform: translateY(-2px);
 }
 
 .github-icon {
@@ -159,7 +220,7 @@
     cursor: default;
     transition: all 0.3s ease;
     position: relative;
-    background: linear-gradient(135deg, #0B0F14 0%, #1A1F2E 100%);
+    background: linear-gradient(135deg, hsl(var(--card-bg-start)) 0%, hsl(var(--card-bg-end)) 100%);
 }
 
 .experience-card::before {
@@ -169,14 +230,14 @@
     background-image: repeating-linear-gradient(0deg,
             transparent,
             transparent 2px,
-            rgba(34, 255, 136, 0.03) 2px,
-            rgba(34, 255, 136, 0.03) 4px);
+            hsl(var(--accent) / 0.03) 2px,
+            hsl(var(--accent) / 0.03) 4px);
     pointer-events: none;
     border-radius: inherit;
 }
 
 .experience-card:hover {
-    box-shadow: 0 0 20px rgba(34, 255, 136, 0.1);
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.15);
 }
 
 .work-badge {
@@ -193,10 +254,10 @@
 }
 
 .work-badge.remote {
-    background: rgba(34, 255, 136, 0.1);
-    color: #22FF88;
-    border-color: #22FF88;
-    box-shadow: 0 0 8px rgba(34, 255, 136, 0.2);
+    background: hsl(var(--accent) / 0.12);
+    color: hsl(var(--accent));
+    border-color: hsl(var(--accent));
+    box-shadow: 0 0 8px hsl(var(--accent) / 0.22);
 }
 
 .work-badge.onsite {
@@ -218,51 +279,52 @@
 }
 
 .bullet {
-    color: #22FF88;
+    color: hsl(var(--accent));
     font-weight: bold;
-    text-shadow: 0 0 6px rgba(34, 255, 136, 0.25);
+    text-shadow: 0 0 6px hsl(var(--accent) / 0.25);
 }
 
 .badge {
-    background: rgba(34, 255, 136, 0.1);
-    color: #22FF88;
-    border: 1px solid rgba(34, 255, 136, 0.3);
+    background: hsl(var(--accent) / 0.1);
+    color: hsl(var(--accent));
+    border: 1px solid hsl(var(--accent) / 0.3);
 }
 
 .badge:hover {
-    border-color: #22FF88;
-    box-shadow: 0 0 8px rgba(34, 255, 136, 0.2);
+    border-color: hsl(var(--accent));
+    box-shadow: 0 0 8px hsl(var(--accent) / 0.25);
 }
 
-/* Terminal-style buttons */
+/* Buttons driven by theme variables */
 .btn-primary {
-    background: transparent;
-    color: #22FF88;
-    border: 1px solid #22FF88;
-    box-shadow: inset 0 0 0 0 rgba(34, 255, 136, 0.15);
+    background: hsl(var(--background));
+    color: hsl(var(--accent));
+    border: 1px solid hsl(var(--accent));
+    box-shadow: inset 0 0 0 0 hsl(var(--accent) / 0.15);
 }
 
 .btn-primary:hover {
-    background: #22FF88;
-    color: #0B0F14;
-    box-shadow: 0 0 12px rgba(34, 255, 136, 0.35);
+    background: hsl(var(--background));
+    color: hsl(var(--accent));
+    box-shadow: 0 0 12px hsl(var(--accent) / 0.35);
 }
 
 .btn-secondary {
-    background: #11161D;
-    color: #E6E6E6;
-    border: 1px solid #1B2330;
+    background: hsl(var(--accent));
+    color: hsl(var(--background));
+    border: 1px solid hsl(var(--accent));
 }
 
 .btn-secondary:hover {
-    border-color: #22FF88;
-    color: #22FF88;
-    box-shadow: 0 0 8px rgba(34, 255, 136, 0.2);
+    border-color: hsl(var(--accent));
+    background: hsl(var(--background));
+    color: hsl(var(--accent));
+    box-shadow: inset 0 0 0 0 hsl(var(--accent) / 0.15), 0 0 8px hsl(var(--accent) / 0.2);
 }
 
 /* Tech and Hobby card hover effects */
 .tech-card {
-    background: linear-gradient(135deg, #0B0F14 0%, #1A1F2E 100%);
+    background: linear-gradient(135deg, hsl(var(--card-bg-start)) 0%, hsl(var(--card-bg-end)) 100%);
     position: relative;
     cursor: default;
 }
@@ -274,19 +336,19 @@
     background-image: repeating-linear-gradient(0deg,
             transparent,
             transparent 2px,
-            rgba(34, 255, 136, 0.03) 2px,
-            rgba(34, 255, 136, 0.03) 4px);
+            hsl(var(--accent) / 0.03) 2px,
+            hsl(var(--accent) / 0.03) 4px);
     pointer-events: none;
     border-radius: inherit;
 }
 
 .tech-card:hover {
-    box-shadow: 0 0 20px rgba(34, 255, 136, 0.1);
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.15);
     transform: translateY(-2px);
 }
 
 .hobby-card {
-    background: linear-gradient(135deg, #0B0F14 0%, #1A1F2E 100%);
+    background: linear-gradient(135deg, hsl(var(--card-bg-start)) 0%, hsl(var(--card-bg-end)) 100%);
     position: relative;
     cursor: default;
 }
@@ -298,13 +360,27 @@
     background-image: repeating-linear-gradient(0deg,
             transparent,
             transparent 2px,
-            rgba(34, 255, 136, 0.03) 2px,
-            rgba(34, 255, 136, 0.03) 4px);
+            hsl(var(--accent) / 0.03) 2px,
+            hsl(var(--accent) / 0.03) 4px);
     pointer-events: none;
     border-radius: inherit;
 }
 
 .hobby-card:hover {
-    box-shadow: 0 0 20px rgba(34, 255, 136, 0.1);
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.15);
     transform: translateY(-2px);
+}
+
+/* Hobbies text hover to accent in both themes */
+.hobby-card:hover span {
+    color: hsl(var(--accent));
+}
+
+/* Small lift for emoji on hover */
+.hobby-card .text-4xl {
+    transition: transform 0.2s ease;
+}
+
+.hobby-card:hover .text-4xl {
+    transform: translateY(-3px);
 }

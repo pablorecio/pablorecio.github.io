@@ -34,7 +34,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <head>
                 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/apple-touch-icon-57x57.png" />
                 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114.png" />
@@ -49,6 +49,15 @@ export default function RootLayout({
                 <meta name="theme-color" content="#0E1116" />
                 <meta name="msapplication-TileColor" content="#98dded" />
                 <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+                {/* Prevent theme flash: read localStorage before React hydration */}
+                <script dangerouslySetInnerHTML={{
+                    __html: `
+                    try {
+                      const t = localStorage.getItem('theme') || 'dark';
+                      if (t === 'dark') document.documentElement.classList.add('dark');
+                      else document.documentElement.classList.remove('dark');
+                    } catch {}
+                `}} />
             </head>
             <body className={`${inter.className} min-h-screen bg-background font-sans antialiased`}>
                 {children}

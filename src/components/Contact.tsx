@@ -34,12 +34,12 @@ export default function Contact() {
                                     />
                                     <div>
                                         <p className="font-semibold text-foreground/80">{item.name}</p>
-                                        <p className="text-foreground/80">
+                                        <p className="text-muted-foreground">
                                             <a
                                                 href={item.url}
                                                 target={item.url.startsWith('http') ? '_blank' : undefined}
                                                 rel={item.url.startsWith('http') ? 'noreferrer' : undefined}
-                                                className="hover:text-primary transition-colors"
+                                                className="hover:text-accent transition-colors"
                                             >
                                                 {item.label}
                                             </a>

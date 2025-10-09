@@ -1,11 +1,15 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sun, Moon } from 'lucide-react'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [activeSection, setActiveSection] = useState('home')
+    const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+        if (typeof window === 'undefined') return 'dark'
+        return (localStorage.getItem('theme') as 'light' | 'dark') || 'dark'
+    })
 
     useEffect(() => {
         const handleScroll = () => {
@@ -27,6 +31,20 @@ export default function Header() {
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
+
+    // Apply theme class to <html> and persist
+    useEffect(() => {
+        if (typeof document === 'undefined') return
+        const root = document.documentElement
+        if (theme === 'dark') {
+            root.classList.add('dark')
+        } else {
+            root.classList.remove('dark')
+        }
+        try {
+            localStorage.setItem('theme', theme)
+        } catch { /* ignore */ }
+    }, [theme])
 
     const scrollToSection = (sectionId: string) => {
         const element = document.getElementById(sectionId)
@@ -58,7 +76,7 @@ export default function Header() {
                         {navItems.map((item) => (
                             <button
                                 key={item.id}
-                                className={`nav-link transition-colors hover:text-primary ${activeSection === item.id ? 'active text-primary' : 'text-muted-foreground'
+                                className={`nav-link transition-colors hover:text-accent ${activeSection === item.id ? 'active text-accent' : 'text-muted-foreground'
                                     }`}
                                 onClick={() => scrollToSection(item.id)}
                             >
@@ -68,6 +86,15 @@ export default function Header() {
                     </nav>
                 </div>
                 <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+                    <button
+                        className="inline-flex items-center justify-center rounded-md h-9 w-9 mr-1 border border-border hover:bg-accent/10 transition-colors"
+                        type="button"
+                        aria-label="Toggle theme"
+                        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                        title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                    >
+                        {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                    </button>
                     <button
                         className="inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 py-2 mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
                         type="button"
@@ -87,8 +114,8 @@ export default function Header() {
                             <button
                                 key={item.id}
                                 className={`block w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors ${activeSection === item.id
-                                    ? 'text-primary bg-primary/10'
-                                    : 'text-muted-foreground hover:text-primary hover:bg-primary/5'
+                                    ? 'text-accent bg-accent/10'
+                                    : 'text-muted-foreground hover:text-accent hover:bg-accent/5'
                                     }`}
                                 onClick={() => scrollToSection(item.id)}
                             >

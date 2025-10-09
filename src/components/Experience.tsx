@@ -94,7 +94,7 @@ export default function Experience() {
                                             href={experience.website}
                                             target="_blank"
                                             rel="noreferrer"
-                                            className="text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1"
+                                            className="text-accent hover:text-accent/80 transition-colors inline-flex items-center gap-1"
                                         >
                                             {experience.website.replace('https://', '')}
                                             <ExternalLink className="w-4 h-4" />
@@ -111,7 +111,7 @@ export default function Experience() {
                                         </div>
                                         <button
                                             onClick={() => handleCardToggle(index)}
-                                            className="experience-toggle text-primary font-size-1rem transition-none cursor-pointer flex-shrink-0"
+                                            className="experience-toggle text-accent font-size-1rem transition-none cursor-pointer flex-shrink-0"
                                         >
                                             <ChevronDown
                                                 className={`w-4 h-4 transition-transform ${openCard === index ? 'rotate-180' : ''
@@ -126,8 +126,8 @@ export default function Experience() {
                                 <div className="experience-content open">
                                     <div className="space-y-6 mt-6">
                                         {experience.positions.map((position, posIndex) => (
-                                            <div key={posIndex} className="border-l-2 border-primary pl-4">
-                                                <h4 className="text-lg font-semibold text-primary">{position.title}</h4>
+                                            <div key={posIndex} className="border-l-2 border-accent pl-4">
+                                                <h4 className="text-lg font-semibold text-accent">{position.title}</h4>
                                                 <p className="text-sm text-muted-foreground mb-3">
                                                     {position.period}
                                                 </p>

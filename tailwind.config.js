@@ -16,30 +16,30 @@ module.exports = {
         },
         extend: {
             colors: {
-                border: "#1B2330",
-                input: "#1B2330",
-                ring: "#22FF88",
-                background: "#0E1116",
-                foreground: "#E6E6E6",
+                border: "hsl(var(--border))",
+                input: "hsl(var(--input))",
+                ring: "hsl(var(--ring))",
+                background: "hsl(var(--background))",
+                foreground: "hsl(var(--foreground))",
                 primary: {
-                    DEFAULT: "#22FF88",
-                    foreground: "#0B0F14",
+                    DEFAULT: "hsl(var(--primary))",
+                    foreground: "hsl(var(--primary-foreground))",
                 },
                 secondary: {
-                    DEFAULT: "#0B0F14",
-                    foreground: "#22FF88",
+                    DEFAULT: "hsl(var(--secondary))",
+                    foreground: "hsl(var(--secondary-foreground))",
                 },
                 muted: {
-                    DEFAULT: "#0B0F14",
-                    foreground: "#9AA4AF",
+                    DEFAULT: "hsl(var(--muted))",
+                    foreground: "hsl(var(--muted-foreground))",
                 },
                 accent: {
-                    DEFAULT: "#22FF88",
-                    foreground: "#0B0F14",
+                    DEFAULT: "hsl(var(--accent))",
+                    foreground: "hsl(var(--accent-foreground))",
                 },
                 card: {
-                    DEFAULT: "#11161D",
-                    foreground: "#E6E6E6",
+                    DEFAULT: "hsl(var(--card))",
+                    foreground: "hsl(var(--card-foreground))",
                 },
                 destructive: {
                     DEFAULT: "hsl(var(--destructive))",
