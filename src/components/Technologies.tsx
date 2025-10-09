@@ -1,6 +1,7 @@
 'use client'
 
-import technologiesData from '@/data/technologies.json'
+import { useState, useEffect } from 'react'
+import { api } from '@/services/api'
 
 interface Technology {
     name: string
@@ -8,6 +9,59 @@ interface Technology {
 }
 
 export default function Technologies() {
+    const [technologiesData, setTechnologiesData] = useState<Technology[]>([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
+
+    useEffect(() => {
+        const fetchTechnologiesData = async () => {
+            try {
+                const data = await api.getTechnologies()
+                setTechnologiesData(data)
+            } catch (err) {
+                setError(err instanceof Error ? err.message : 'An error occurred')
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        fetchTechnologiesData()
+    }, [])
+
+    if (loading) {
+        return (
+            <section id="stack" className="py-24 bg-muted/50">
+                <div className="container max-w-6xl mx-auto px-4">
+                    <div className="flex flex-col items-center text-center mb-16">
+                        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-mono">
+                            Technologies & Tools
+                        </h2>
+                    </div>
+                    <div className="flex justify-center">
+                        <div className="text-muted-foreground">Loading...</div>
+                    </div>
+                </div>
+            </section>
+        )
+    }
+
+    if (error) {
+        return (
+            <section id="stack" className="py-24 bg-muted/50">
+                <div className="container max-w-6xl mx-auto px-4">
+                    <div className="flex flex-col items-center text-center mb-16">
+                        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-mono">
+                            Technologies & Tools
+                        </h2>
+                    </div>
+                    <div className="flex justify-center">
+                        <div className="text-red-500">Error: {error}</div>
+                    </div>
+                </div>
+            </section>
+        )
+    }
+
     return (
         <section id="stack" className="py-24 bg-muted/50">
             <div className="container max-w-6xl mx-auto px-4">

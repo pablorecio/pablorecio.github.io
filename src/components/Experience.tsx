@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import type { MouseEvent as ReactMouseEvent, KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { ChevronDown, ExternalLink } from 'lucide-react'
-import experienceData from '@/data/experience.json'
+import { api } from '@/services/api'
 
 interface Position {
     title: string
@@ -23,7 +23,25 @@ interface ExperienceItem {
 }
 
 export default function Experience() {
+    const [experienceData, setExperienceData] = useState<ExperienceItem[]>([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
     const [openCard, setOpenCard] = useState<number | null>(0) // First card open by default
+
+    useEffect(() => {
+        const fetchExperienceData = async () => {
+            try {
+                const data = await api.getExperience()
+                setExperienceData(data)
+            } catch (err) {
+                setError(err instanceof Error ? err.message : 'An error occurred')
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        fetchExperienceData()
+    }, [])
 
     useEffect(() => {
         // Load last opened card from localStorage
@@ -58,6 +76,40 @@ export default function Experience() {
                 handleCardToggle(index)
             }
         }
+    }
+
+    if (loading) {
+        return (
+            <section id="experience" className="py-24 bg-background">
+                <div className="container max-w-6xl mx-auto px-4">
+                    <div className="flex flex-col items-center text-center mb-16">
+                        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-mono">
+                            Professional Experience
+                        </h2>
+                    </div>
+                    <div className="flex justify-center">
+                        <div className="text-muted-foreground">Loading...</div>
+                    </div>
+                </div>
+            </section>
+        )
+    }
+
+    if (error) {
+        return (
+            <section id="experience" className="py-24 bg-background">
+                <div className="container max-w-6xl mx-auto px-4">
+                    <div className="flex flex-col items-center text-center mb-16">
+                        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-mono">
+                            Professional Experience
+                        </h2>
+                    </div>
+                    <div className="flex justify-center">
+                        <div className="text-red-500">Error: {error}</div>
+                    </div>
+                </div>
+            </section>
+        )
     }
 
     return (
