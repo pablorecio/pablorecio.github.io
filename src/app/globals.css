@@ -203,11 +203,6 @@
     transition: transform 0.2s ease;
 }
 
-.tech-card:hover span {
-    color: hsl(var(--accent));
-    transform: translateY(-2px);
-}
-
 .github-icon {
     filter: invert(1) brightness(0.8) contrast(1.2);
 }
@@ -345,6 +340,10 @@
 .tech-card:hover {
     box-shadow: 0 0 20px hsl(var(--accent) / 0.15);
     transform: translateY(-2px);
+}
+
+.tech-card:hover span {
+    color: hsl(var(--accent));
 }
 
 .hobby-card {
