@@ -8,7 +8,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 - **Responsive Design**: Mobile-first approach with beautiful animations
 - **Data-Driven**: Content managed through JSON files for easy updates
 - **PDF Export**: Built-in PDF export functionality for resume
-- **Performance Optimized**: Static generation with Next.js
+- **Performance Optimized**: Server-side rendering with Next.js
 - **SEO Ready**: Proper meta tags and structured data
 
 ## Tech Stack
@@ -108,19 +108,9 @@ The project uses a custom dark theme with green accents:
 2. Connect your repository to Vercel
 3. Deploy automatically
 
-### GitHub Pages
-
-1. Build the project:
-```bash
-npm run build
-```
-
-2. The static files will be in the `out/` directory
-3. Deploy the contents to GitHub Pages
-
 ### Other Platforms
 
-The project generates static files that can be deployed to any static hosting service.
+The project can be deployed to any platform that supports Next.js applications.
 
 ## Scripts
 
@@ -148,7 +138,7 @@ The portfolio includes a PDF export feature that generates a clean, printable ve
 
 ### Performance
 
-- Static generation for fast loading
+- Server-side rendering for fast loading
 - Image optimization with Next.js Image component
 - Minimal JavaScript bundle
 - CSS optimization with Tailwind
