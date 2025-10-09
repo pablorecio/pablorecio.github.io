@@ -1,7 +1,8 @@
 {
     "buildCommand": "npm run build",
     "outputDirectory": "out",
-    "framework": "other",
+    "framework": "nextjs",
+    "buildCommand": "npm run export",
     "headers": [
         {
             "source": "/(.*)",
