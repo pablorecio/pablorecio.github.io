@@ -39,7 +39,6 @@ export async function POST(request: Request) {
 
         // Check if Resend API key is configured
         if (!process.env.RESEND_API_KEY) {
-            console.error('RESEND_API_KEY is not configured')
             return NextResponse.json(
                 { error: 'Email service not configured' },
                 { status: 500 }
@@ -63,7 +62,6 @@ export async function POST(request: Request) {
         })
 
         if (error) {
-            console.error('Resend error:', error)
             return NextResponse.json(
                 { error: `Failed to send email: ${error.message || 'Unknown error'}` },
                 { status: 500 }
@@ -75,7 +73,6 @@ export async function POST(request: Request) {
             { status: 200 }
         )
     } catch (error) {
-        console.error('Contact form error:', error)
         return NextResponse.json(
             { error: 'Internal server error' },
             { status: 500 }
