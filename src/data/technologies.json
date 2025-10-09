@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Python",
+        "icon": "/tools/python.svg"
+    },
+    {
+        "name": "dbt",
+        "icon": "/tools/dbt.svg"
+    },
+    {
+        "name": "Snowflake",
+        "icon": "/tools/snowflake.svg"
+    },
+    {
+        "name": "Kafka",
+        "icon": "/tools/kafka.svg"
+    },
+    {
+        "name": "Golang",
+        "icon": "/tools/go.svg"
+    },
+    {
+        "name": "PostHog",
+        "icon": "/tools/posthog.svg"
+    },
+    {
+        "name": "PostgreSQL",
+        "icon": "/tools/postgresql.svg"
+    },
+    {
+        "name": "Next.js",
+        "icon": "/tools/nextdotjs.svg"
+    },
+    {
+        "name": "TypeScript",
+        "icon": "/tools/typescript.svg"
+    },
+    {
+        "name": "Docker",
+        "icon": "/tools/docker.svg"
+    },
+    {
+        "name": "Kubernetes",
+        "icon": "/tools/kubernetes.svg"
+    },
+    {
+        "name": "Terraform",
+        "icon": "/tools/terraform.svg"
+    }
+]

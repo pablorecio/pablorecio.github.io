@@ -1,0 +1,33 @@
+{
+    "email": "pablo@recio.me",
+    "location": "Jerez, Andalusia, Spain",
+    "locationUrl": "https://en.wikipedia.org/wiki/Jerez_de_la_Frontera",
+    "linkedin": "https://www.linkedin.com/in/pablorecio",
+    "github": "https://github.com/pablorecio",
+    "social": [
+        {
+            "name": "Email",
+            "icon": "/tools/gmail.svg",
+            "url": "mailto:pablo@recio.me",
+            "label": "pablo@recio.me"
+        },
+        {
+            "name": "Location",
+            "icon": "/tools/googlemaps.svg",
+            "url": "https://en.wikipedia.org/wiki/Jerez_de_la_Frontera",
+            "label": "Jerez, Andalusia, Spain"
+        },
+        {
+            "name": "LinkedIn",
+            "icon": "/tools/linkedin.svg",
+            "url": "https://www.linkedin.com/in/pablorecio",
+            "label": "linkedin.com/in/pablorecio"
+        },
+        {
+            "name": "GitHub",
+            "icon": "/tools/github.svg",
+            "url": "https://github.com/pablorecio",
+            "label": "github.com/pablorecio"
+        }
+    ]
+}
