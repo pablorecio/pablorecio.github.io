@@ -14,7 +14,7 @@ async function fetchData<T>(endpoint: string, fallbackData: T): Promise<T> {
     } catch (error) {
         console.warn(`API route ${endpoint} not available, falling back to static data`)
     }
-    
+
     // Fallback to static data if API route fails
     return fallbackData
 }
