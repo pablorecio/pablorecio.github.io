@@ -14,10 +14,11 @@ export const metadata: Metadata = {
         description: 'Staff Software Engineer with 15 years of experience in Python, data engineering, and backend development.',
         type: 'website',
         locale: 'en_US',
+        url: 'https://pablo.recio.me',
         siteName: 'Pablo Recio',
         images: [
             {
-                url: 'https://pablo.recio.me/background.jpg',
+                url: 'https://pablo.recio.me/og-image.svg',
                 width: 1200,
                 height: 630,
                 alt: 'Pablo Recio - Staff Software Engineer'
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'Pablo Recio - Staff Software Engineer',
         description: 'Staff Software Engineer with 15 years of experience in Python, data engineering, and backend development.',
-        images: ['https://pablo.recio.me/background.jpg']
+        images: ['https://pablo.recio.me/og-image.svg']
     },
 }
 
