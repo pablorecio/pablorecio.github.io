@@ -74,10 +74,10 @@ export default function Hobbies() {
                     {hobbiesData.map((hobby: Hobby, index: number) => (
                         <div
                             key={index}
-                            className="hobby-card flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground transition-all duration-300 cursor-pointer"
+                            className="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground"
                         >
                             <div className="text-4xl">{hobby.emoji}</div>
-                            <span className="text-sm font-medium text-center">{hobby.name}</span>
+                            <span className="text-sm font-medium text-center text-accent">{hobby.name}</span>
                         </div>
                     ))}
                 </div>

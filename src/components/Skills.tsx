@@ -160,20 +160,20 @@ export default function Skills() {
                                             return (
                                                 <div
                                                     key={item.name}
-                                                    className="tech-card group flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground"
+                                                    className="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground"
                                                 >
                                                     {LeadershipIcon ? (
-                                                        <LeadershipIcon className="w-12 h-12 text-foreground group-hover:text-accent transition-colors" />
+                                                        <LeadershipIcon className="w-12 h-12 text-accent" />
                                                     ) : item.icon ? (
                                                         <img
                                                             src={item.icon}
                                                             alt={item.name}
                                                             width={48}
                                                             height={48}
-                                                            className="w-12 h-12 tech-icon"
+                                                            className="w-12 h-12 tech-icon-accent"
                                                         />
                                                     ) : null}
-                                                    <span className="text-sm font-medium text-center">{item.name}</span>
+                                                    <span className="text-sm font-medium text-center text-accent">{item.name}</span>
                                                 </div>
                                             )
                                         })}

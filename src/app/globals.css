@@ -184,7 +184,7 @@
 }
 
 .tech-card:hover .tech-icon {
-    /* default to accent color on hover in light theme (#7a61a2) */
+    /* violet accent color on hover in light theme (#7a61a2) */
     filter: brightness(0) saturate(100%) invert(34%) sepia(14%) saturate(1321%) hue-rotate(228deg) brightness(95%) contrast(92%);
     transform: translateY(-3px);
 }
@@ -374,6 +374,17 @@
 /* Hobbies text hover to accent in both themes */
 .hobby-card:hover span {
     color: hsl(var(--accent));
+}
+
+/* Tech icon accent color for both themes */
+.tech-icon-accent {
+    /* Light theme: violet (#7a61a2) */
+    filter: brightness(0) saturate(100%) invert(34%) sepia(14%) saturate(1321%) hue-rotate(228deg) brightness(95%) contrast(92%);
+}
+
+.dark .tech-icon-accent {
+    /* Dark theme: neon green (#22FF88) */
+    filter: brightness(0) saturate(100%) invert(73%) sepia(85%) saturate(468%) hue-rotate(83deg) brightness(103%) contrast(102%);
 }
 
 /* Small lift for emoji on hover */

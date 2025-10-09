@@ -74,16 +74,16 @@ export default function Technologies() {
                     {technologiesData.map((tech: Technology, index: number) => (
                         <div
                             key={index}
-                            className="tech-card flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground transition-all duration-300 cursor-pointer"
+                            className="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground"
                         >
                             <img
                                 src={tech.icon}
                                 alt={tech.name}
                                 width={48}
                                 height={48}
-                                className="w-12 h-12 tech-icon"
+                                className="w-12 h-12 tech-icon-accent"
                             />
-                            <span className="text-sm font-medium text-center">{tech.name}</span>
+                            <span className="text-sm font-medium text-center text-accent">{tech.name}</span>
                         </div>
                     ))}
                 </div>
