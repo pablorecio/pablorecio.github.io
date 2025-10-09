@@ -132,7 +132,7 @@ export default function Experience() {
                             tabIndex={0}
                         >
                             <div className="grid grid-cols-12 items-center">
-                                <div className="col-span-9 flex items-center gap-4">
+                                <div className="col-span-7 sm:col-span-9 flex items-center gap-4">
                                     <img
                                         src={experience.logo}
                                         alt={experience.company}
@@ -141,19 +141,21 @@ export default function Experience() {
                                         className="company-logo"
                                     />
                                     <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                                        {experience.company} -{' '}
-                                        <a
-                                            href={experience.website}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="text-accent hover:text-accent/80 transition-colors inline-flex items-center gap-1"
-                                        >
-                                            {experience.website.replace('https://', '')}
-                                            <ExternalLink className="w-4 h-4" />
-                                        </a>
+                                        {experience.company}
+                                        <span className="hidden sm:inline"> -{' '}
+                                            <a
+                                                href={experience.website}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="text-accent hover:text-accent/80 transition-colors inline-flex items-center gap-1"
+                                            >
+                                                {experience.website.replace('https://', '')}
+                                                <ExternalLink className="w-4 h-4" />
+                                            </a>
+                                        </span>
                                     </h3>
                                 </div>
-                                <div className="col-span-3 flex items-center justify-between">
+                                <div className="col-span-5 sm:col-span-3 flex items-center justify-between">
                                     <div className={`work-badge ${experience.location.toLowerCase()}`}>
                                         {experience.location}
                                     </div>
