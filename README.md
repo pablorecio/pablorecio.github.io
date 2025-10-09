@@ -165,9 +165,75 @@ The portfolio includes a PDF export feature that generates a clean, printable ve
 
 This project is open source and available under the [MIT License](LICENSE).
 
+## Environment Variables Setup
+
+### PostHog Configuration
+
+The project uses PostHog for analytics. To configure PostHog with environment variables:
+
+#### Required Environment Variables
+- `NEXT_PUBLIC_POSTHOG_KEY`: Your PostHog project key
+- `NEXT_PUBLIC_POSTHOG_HOST`: PostHog API host (default: https://eu.i.posthog.com)
+
+#### Local Development Setup
+
+1. Create a `.env.local` file in the root directory:
+```bash
+# PostHog Configuration
+NEXT_PUBLIC_POSTHOG_KEY=phc_Dr4HuSTh5ssM6Gw0Shm5Vh3h0QFyMc0dI7omWNXdghW
+NEXT_PUBLIC_POSTHOG_HOST=https://eu.i.posthog.com
+```
+
+2. Restart your development server:
+```bash
+npm run dev
+```
+
+#### Vercel Deployment Setup
+
+**Option 1: Using Vercel CLI**
+```bash
+# Install Vercel CLI if you haven't already
+npm i -g vercel
+
+# Set environment variables
+vercel env add NEXT_PUBLIC_POSTHOG_KEY
+vercel env add NEXT_PUBLIC_POSTHOG_HOST
+
+# Deploy
+vercel --prod
+```
+
+**Option 2: Using Vercel Dashboard**
+1. Go to your project in the Vercel dashboard
+2. Navigate to Settings → Environment Variables
+3. Add the following variables:
+   - `NEXT_PUBLIC_POSTHOG_KEY`: `phc_Dr4HuSTh5ssM6Gw0Shm5Vh3h0QFyMc0dI7omWNXdghW`
+   - `NEXT_PUBLIC_POSTHOG_HOST`: `https://eu.i.posthog.com`
+4. Redeploy your application
+
+#### How It Works
+
+The PostHog configuration has been moved from the hardcoded `index.html` file to a React component (`src/components/PostHogProvider.tsx`) that uses environment variables. This provides:
+
+- **Flexibility**: Different keys for development and production
+- **Security**: No hardcoded keys in your repository
+- **Maintainability**: Easy to update keys without code changes
+
+#### Security Notes
+
+- Never commit `.env.local` to version control
+- Use different PostHog keys for development and production
+- Consider using Vercel's built-in environment variable management for production
+
+#### Troubleshooting
+
+1. **PostHog not tracking**: Check that environment variables are properly set
+2. **Environment variables not loading**: Ensure they start with `NEXT_PUBLIC_` for client-side access
+3. **Fallback behavior**: If environment variables are not set, the system will fall back to the original hardcoded values
+
 ## Contact
 
 - **Email**: pablo@recio.me
 - **LinkedIn**: [linkedin.com/in/pablorecio](https://linkedin.com/in/pablorecio)
 - **GitHub**: [github.com/pablorecio](https://github.com/pablorecio)
-# Trigger Vercel deployment
