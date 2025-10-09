@@ -5,11 +5,11 @@
         "website": "https://chess.com",
         "logo": "/companies/chess.png",
         "location": "Remote",
-        "period": "May 2025 - Present",
+        "period": "Apr 2025 - Present",
         "positions": [
             {
                 "title": "Staff Software Engineer",
-                "period": "May 2025 - Present",
+                "period": "Apr 2025 - Present",
                 "technologies": [
                     "Python",
                     "Kafka",
@@ -30,11 +30,11 @@
         "website": "https://fitxr.com",
         "logo": "/companies/fitxr.png",
         "location": "Remote",
-        "period": "Apr 2024 - May 2025",
+        "period": "Apr 2024 - Apr 2025",
         "positions": [
             {
                 "title": "Senior Data Engineer",
-                "period": "Apr 2024 - May 2025",
+                "period": "Apr 2024 - Apr 2025",
                 "technologies": [
                     "AWS",
                     "Snowflake",
