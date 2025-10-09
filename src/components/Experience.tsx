@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import type { MouseEvent as ReactMouseEvent, KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { ChevronDown, ExternalLink } from 'lucide-react'
 import experienceData from '@/data/experience.json'
 
@@ -42,6 +43,23 @@ export default function Experience() {
         }
     }
 
+    const handleCardClick = (e: ReactMouseEvent<HTMLDivElement>, index: number) => {
+        const target = e.target as HTMLElement
+        // Ignore clicks on links or buttons inside the card so they work normally
+        if (target.closest('a') || target.closest('button')) return
+        handleCardToggle(index)
+    }
+
+    const handleCardKeyDown = (e: ReactMouseEvent<HTMLDivElement> | ReactKeyboardEvent<HTMLDivElement>, index: number) => {
+        // Keyboard accessibility: toggle on Enter or Space when the card is focused
+        if ('key' in e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                handleCardToggle(index)
+            }
+        }
+    }
+
     return (
         <section id="experience" className="py-24 bg-background">
             <div className="container max-w-6xl mx-auto px-4">
@@ -56,6 +74,10 @@ export default function Experience() {
                         <div
                             key={experience.id}
                             className="experience-card rounded-lg border bg-card text-card-foreground shadow-sm p-6"
+                            onClick={(e) => handleCardClick(e, index)}
+                            onKeyDown={(e) => handleCardKeyDown(e, index)}
+                            role="button"
+                            tabIndex={0}
                         >
                             <div className="grid grid-cols-12 items-center">
                                 <div className="col-span-9 flex items-center gap-4">
