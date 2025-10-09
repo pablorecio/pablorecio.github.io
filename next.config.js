@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'export',
+    // Remove static export to support API routes in production
+    // output: 'export', // Commented out to enable API routes
     trailingSlash: true,
     images: {
         unoptimized: true

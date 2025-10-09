@@ -1,6 +1,7 @@
 'use client'
 
-import contactData from '@/data/contact.json'
+import { useState, useEffect } from 'react'
+import { api } from '@/services/api'
 
 interface SocialItem {
     name: string
@@ -9,7 +10,68 @@ interface SocialItem {
     label: string
 }
 
+interface ContactData {
+    email: string
+    location: string
+    locationUrl: string
+    linkedin: string
+    github: string
+    social: SocialItem[]
+}
+
 export default function Contact() {
+    const [contactData, setContactData] = useState<ContactData | null>(null)
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
+
+    useEffect(() => {
+        const fetchContactData = async () => {
+            try {
+                const data = await api.getContact()
+                setContactData(data)
+            } catch (err) {
+                setError(err instanceof Error ? err.message : 'An error occurred')
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        fetchContactData()
+    }, [])
+
+    if (loading) {
+        return (
+            <section id="contact" className="py-24 bg-background">
+                <div className="container max-w-4xl mx-auto px-4">
+                    <div className="flex flex-col items-center text-center mb-16">
+                        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-mono">
+                            Contact Information
+                        </h2>
+                    </div>
+                    <div className="flex justify-center">
+                        <div className="text-muted-foreground">Loading...</div>
+                    </div>
+                </div>
+            </section>
+        )
+    }
+
+    if (error || !contactData) {
+        return (
+            <section id="contact" className="py-24 bg-background">
+                <div className="container max-w-4xl mx-auto px-4">
+                    <div className="flex flex-col items-center text-center mb-16">
+                        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-mono">
+                            Contact Information
+                        </h2>
+                    </div>
+                    <div className="flex justify-center">
+                        <div className="text-red-500">Error: {error || 'Failed to load contact data'}</div>
+                    </div>
+                </div>
+            </section>
+        )
+    }
 
     return (
         <section id="contact" className="py-24 bg-background">
