@@ -88,8 +88,8 @@ export default function Contact() {
                         <div>
                             <h3 className="text-2xl font-bold mb-6 font-mono">Get in touch</h3>
                             <p className="text-muted-foreground mb-8">
-                                I'm always interested in hearing about new opportunities, interesting projects,
-                                or just having a chat about technology and software engineering.
+                                I'm always open to hear about new opportunities, interesting projects,
+                                or just having a chat about technology, software engineering or dogs.
                             </p>
                         </div>
                         <div className="grid gap-6">

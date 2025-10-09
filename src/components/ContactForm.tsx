@@ -152,7 +152,7 @@ export default function ContactForm() {
                         value={formData.subject}
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-colors"
-                        placeholder="What's this about?"
+                        placeholder="What's this about? Is it doggos?"
                     />
                 </div>
 
