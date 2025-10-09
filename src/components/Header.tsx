@@ -1,11 +1,12 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Menu, X, Sun, Moon } from 'lucide-react'
+import { Menu, X, Sun, Moon, Github } from 'lucide-react'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [activeSection, setActiveSection] = useState('home')
+    const [showTooltip, setShowTooltip] = useState<string | null>(null)
     const [theme, setTheme] = useState<'light' | 'dark'>(() => {
         if (typeof window === 'undefined') return 'dark'
         return (localStorage.getItem('theme') as 'light' | 'dark') || 'dark'
@@ -86,23 +87,61 @@ export default function Header() {
                     </nav>
                 </div>
                 <div className="flex flex-1 items-center justify-end space-x-2">
-                    <button
-                        className="inline-flex items-center justify-center rounded-md h-9 w-9 border border-border hover:bg-accent/10 transition-colors"
-                        type="button"
-                        aria-label="Toggle theme"
-                        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                        title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-                    >
-                        {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-                    </button>
-                    <button
-                        className="inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 py-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
-                        type="button"
-                        aria-label="Open menu"
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    >
-                        {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                    </button>
+                    <div className="relative">
+                        <a
+                            href="https://github.com/pablorecio/pablorecio.github.io"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center rounded-md h-9 w-9 border border-border hover:bg-accent/10 transition-colors"
+                            aria-label="View source code on GitHub"
+                            onMouseEnter={() => setShowTooltip('github')}
+                            onMouseLeave={() => setShowTooltip(null)}
+                        >
+                            <Github className="h-4 w-4" />
+                        </a>
+                        {showTooltip === 'github' && (
+                            <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-foreground text-background px-2 py-1 rounded text-xs whitespace-nowrap z-50">
+                                View source code on GitHub
+                                <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-foreground rotate-45"></div>
+                            </div>
+                        )}
+                    </div>
+                    <div className="relative">
+                        <button
+                            className="inline-flex items-center justify-center rounded-md h-9 w-9 border border-border hover:bg-accent/10 transition-colors"
+                            type="button"
+                            aria-label="Toggle theme"
+                            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                            onMouseEnter={() => setShowTooltip('theme')}
+                            onMouseLeave={() => setShowTooltip(null)}
+                        >
+                            {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                        </button>
+                        {showTooltip === 'theme' && (
+                            <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-foreground text-background px-2 py-1 rounded text-xs whitespace-nowrap z-50">
+                                {theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                                <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-foreground rotate-45"></div>
+                            </div>
+                        )}
+                    </div>
+                    <div className="relative md:hidden">
+                        <button
+                            className="inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 py-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+                            type="button"
+                            aria-label="Open menu"
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            onMouseEnter={() => setShowTooltip('menu')}
+                            onMouseLeave={() => setShowTooltip(null)}
+                        >
+                            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                        </button>
+                        {showTooltip === 'menu' && (
+                            <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-foreground text-background px-2 py-1 rounded text-xs whitespace-nowrap z-50">
+                                {isMenuOpen ? 'Close menu' : 'Open menu'}
+                                <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-foreground rotate-45"></div>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
 

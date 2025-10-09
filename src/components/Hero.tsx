@@ -1,6 +1,34 @@
 'use client'
 
+import { useState, useEffect } from 'react'
+
 export default function Hero() {
+    const [displayedName, setDisplayedName] = useState('')
+    const [isTyping, setIsTyping] = useState(true)
+    const fullName = 'Pablo Recio'
+
+    useEffect(() => {
+        // Small delay before starting the typing animation
+        const startDelay = setTimeout(() => {
+            let currentIndex = 0
+            const typingInterval = setInterval(() => {
+                if (currentIndex < fullName.length) {
+                    setDisplayedName(fullName.slice(0, currentIndex + 1))
+                    currentIndex++
+                } else {
+                    setIsTyping(false)
+                    clearInterval(typingInterval)
+                }
+            }, 120) // Adjust speed here (lower = faster)
+
+            return () => clearInterval(typingInterval)
+        }, 500) // 500ms delay before starting
+
+        return () => {
+            clearTimeout(startDelay)
+        }
+    }, [])
+
     const scrollToSection = (sectionId: string) => {
         const element = document.getElementById(sectionId)
         if (element) {
@@ -24,7 +52,7 @@ export default function Hero() {
                     </div>
                     <div className="space-y-4">
                         <h1 className="caret text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-primary dark:text-white font-mono">
-                            Pablo Recio
+                            {displayedName}
                         </h1>
                         <p className="mx-auto max-w-[700px] text-xl md:text-2xl text-foreground/80">
                             Staff Software Engineer
