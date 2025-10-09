@@ -1,0 +1,100 @@
+[
+    {
+        "title": "Backend",
+        "description": "I've coded in Python my whole career across many environments - Django, Flask, FastAPI, pandas, PySpark. I care about CI/CD, solid tests, and good observability.",
+        "items": [
+            {
+                "name": "Python",
+                "icon": "/tools/python.svg"
+            },
+            {
+                "name": "Golang",
+                "icon": "/tools/go.svg"
+            },
+            {
+                "name": "Kafka",
+                "icon": "/tools/kafka.svg"
+            },
+            {
+                "name": "PostgreSQL",
+                "icon": "/tools/postgresql.svg"
+            }
+        ]
+    },
+    {
+        "title": "Infrastructure",
+        "description": "In recent years I've leaned into infra so teams can self-host and manage the services they need. That autonomy speeds teams up and reduces bottlenecks.",
+        "items": [
+            {
+                "name": "Docker",
+                "icon": "/tools/docker.svg"
+            },
+            {
+                "name": "Kubernetes",
+                "icon": "/tools/kubernetes.svg"
+            },
+            {
+                "name": "Terraform",
+                "icon": "/tools/terraform.svg"
+            }
+        ]
+    },
+    {
+        "title": "Data & Product Analytics",
+        "description": "I'm a full-stack data engineer: ingestion, modeling, warehousing, transformations, and serving data via integrations or dashboards. This work often sits close to product, partnering with sales and marketing.",
+        "items": [
+            {
+                "name": "dbt",
+                "icon": "/tools/dbt.svg"
+            },
+            {
+                "name": "Snowflake",
+                "icon": "/tools/snowflake.svg"
+            },
+            {
+                "name": "PostHog",
+                "icon": "/tools/posthog.svg"
+            },
+            {
+                "name": "Python",
+                "icon": "/tools/python.svg"
+            },
+            {
+                "name": "Kafka",
+                "icon": "/tools/kafka.svg"
+            }
+        ]
+    },
+    {
+        "title": "Frontend",
+        "description": "Not my forte, but I'm enjoying TypeScript. It's stronger than I first gave it credit for and it's slowly winning me over. Still learning for sure, but I'm enjoying the journey.",
+        "items": [
+            {
+                "name": "Next.js",
+                "icon": "/tools/nextdotjs.svg"
+            },
+            {
+                "name": "TypeScript",
+                "icon": "/tools/typescript.svg"
+            }
+        ]
+    },
+    {
+        "title": "Leadership & Mentoring",
+        "description": "I've mentored engineers and teams and learned a ton by teaching. I've also led projects end-to-end alongside PMs and other stakeholders.",
+        "items": [
+            {
+                "name": "Team leadership",
+                "icon": "/tools/leadership.svg"
+            },
+            {
+                "name": "Mentoring",
+                "icon": "/tools/mentoring.svg"
+            },
+            {
+                "name": "Hiring",
+                "icon": "/tools/hiring.svg"
+            }
+        ]
+    }
+]
