@@ -84,7 +84,7 @@ export default function Experience() {
                                         {experience.location}
                                     </div>
                                     <div className="flex items-center gap-3">
-                                        <div className="inline-flex items-center px-3 py-1 text-sm font-semibold text-muted-foreground">
+                                        <div className="inline-flex items-center px-2 py-1 text-sm font-semibold text-muted-foreground">
                                             {experience.period}
                                         </div>
                                         <button
@@ -107,7 +107,7 @@ export default function Experience() {
                                             <div key={posIndex} className="border-l-2 border-primary pl-4">
                                                 <h4 className="text-lg font-semibold text-primary">{position.title}</h4>
                                                 <p className="text-sm text-muted-foreground mb-3">
-                                                    {position.period} • {experience.location}
+                                                    {position.period}
                                                 </p>
                                                 <div className="flex flex-wrap gap-2 mb-3">
                                                     {position.technologies.map((tech, techIndex) => (
