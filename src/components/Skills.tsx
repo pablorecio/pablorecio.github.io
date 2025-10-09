@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import type { MouseEvent as ReactMouseEvent, KeyboardEvent as ReactKeyboardEvent } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Users, UserCheck, UserPlus } from 'lucide-react'
 import { api } from '@/services/api'
 
 interface SkillItem {
@@ -14,6 +14,17 @@ interface SkillSection {
     title: string
     description?: string
     items: SkillItem[]
+}
+
+// Map leadership skills to Lucide React icons
+const getLeadershipIcon = (skillName: string) => {
+    const iconMap: { [key: string]: React.ComponentType<any> } = {
+        'Team leadership': Users,
+        'Mentoring': UserCheck,
+        'Hiring': UserPlus
+    }
+
+    return iconMap[skillName]
 }
 
 export default function Skills() {
@@ -144,23 +155,28 @@ export default function Skills() {
                                         {section.description}
                                     </div>
                                     <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 mt-6">
-                                        {section.items.map((item) => (
-                                            <div
-                                                key={item.name}
-                                                className="tech-card flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground"
-                                            >
-                                                {item.icon && (
-                                                    <img
-                                                        src={item.icon}
-                                                        alt={item.name}
-                                                        width={48}
-                                                        height={48}
-                                                        className="w-12 h-12 tech-icon"
-                                                    />
-                                                )}
-                                                <span className="text-sm font-medium text-center">{item.name}</span>
-                                            </div>
-                                        ))}
+                                        {section.items.map((item) => {
+                                            const LeadershipIcon = getLeadershipIcon(item.name)
+                                            return (
+                                                <div
+                                                    key={item.name}
+                                                    className="tech-card group flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground"
+                                                >
+                                                    {LeadershipIcon ? (
+                                                        <LeadershipIcon className="w-12 h-12 text-foreground group-hover:text-accent transition-colors" />
+                                                    ) : item.icon ? (
+                                                        <img
+                                                            src={item.icon}
+                                                            alt={item.name}
+                                                            width={48}
+                                                            height={48}
+                                                            className="w-12 h-12 tech-icon"
+                                                        />
+                                                    ) : null}
+                                                    <span className="text-sm font-medium text-center">{item.name}</span>
+                                                </div>
+                                            )
+                                        })}
                                     </div>
                                 </div>
                             )}

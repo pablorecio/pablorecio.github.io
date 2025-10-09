@@ -84,16 +84,13 @@
         "description": "I've mentored engineers and teams and learned a ton by teaching. I've also led projects end-to-end alongside PMs and other stakeholders.",
         "items": [
             {
-                "name": "Team leadership",
-                "icon": "/tools/leadership.svg"
+                "name": "Team leadership"
             },
             {
-                "name": "Mentoring",
-                "icon": "/tools/mentoring.svg"
+                "name": "Mentoring"
             },
             {
-                "name": "Hiring",
-                "icon": "/tools/hiring.svg"
+                "name": "Hiring"
             }
         ]
     }
