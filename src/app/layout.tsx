@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         siteName: 'Pablo Recio',
         images: [
             {
-                url: 'https://pablo.recio.me/og-image.svg',
+                url: 'https://pablo.recio.me/og-image.png',
                 width: 1200,
                 height: 630,
                 alt: 'Pablo Recio - Staff Software Engineer'
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'Pablo Recio - Staff Software Engineer',
         description: 'Staff Software Engineer with 15 years of experience in Python, data engineering, and backend development.',
-        images: ['https://pablo.recio.me/og-image.svg']
+        images: ['https://pablo.recio.me/og-image.png']
     },
 }
 
