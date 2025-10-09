@@ -86,10 +86,9 @@ export default function Contact() {
                     {/* Contact Information - Left Side */}
                     <div className="space-y-8">
                         <div>
-                            <h3 className="text-2xl font-bold mb-6 font-mono">Get in touch</h3>
+                            <h3 className="text-2xl font-bold mb-6 font-mono">Let's connect</h3>
                             <p className="text-muted-foreground mb-8">
-                                I'm always open to hear about new opportunities, interesting projects,
-                                or just having a chat about technology, software engineering or dogs.
+                                I'm always up for chatting about new projects, fresh opportunities, or the latest in tech and gaming.
                             </p>
                         </div>
                         <div className="grid gap-6">

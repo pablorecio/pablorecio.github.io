@@ -98,14 +98,11 @@ export default function ContactForm() {
 
     return (
         <div className="w-full max-w-2xl">
-            <h3 className="text-2xl font-bold mb-6 text-center font-mono">Send me a message</h3>
+            <h3 className="text-2xl font-bold mb-6 text-center font-mono">Don't be shy!</h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid gap-6 sm:grid-cols-2">
                     <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-foreground/80 mb-2">
-                            Name *
-                        </label>
                         <input
                             type="text"
                             id="name"
@@ -114,7 +111,7 @@ export default function ContactForm() {
                             onChange={handleInputChange}
                             className={`w-full px-4 py-3 border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-colors ${errors.name ? 'border-red-500' : 'border-border'
                                 }`}
-                            placeholder="Your name"
+                            placeholder="Let's start with your name"
                         />
                         {errors.name && (
                             <p className="mt-1 text-sm text-red-500">{errors.name}</p>
@@ -122,9 +119,6 @@ export default function ContactForm() {
                     </div>
 
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-foreground/80 mb-2">
-                            Email *
-                        </label>
                         <input
                             type="email"
                             id="email"
@@ -133,7 +127,7 @@ export default function ContactForm() {
                             onChange={handleInputChange}
                             className={`w-full px-4 py-3 border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-colors ${errors.email ? 'border-red-500' : 'border-border'
                                 }`}
-                            placeholder="your.email@example.com"
+                            placeholder="doggos@example.com"
                         />
                         {errors.email && (
                             <p className="mt-1 text-sm text-red-500">{errors.email}</p>
@@ -142,9 +136,6 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-foreground/80 mb-2">
-                        Subject
-                    </label>
                     <input
                         type="text"
                         id="subject"
@@ -152,14 +143,11 @@ export default function ContactForm() {
                         value={formData.subject}
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-colors"
-                        placeholder="What's this about? Is it doggos?"
+                        placeholder="What's on your mind?"
                     />
                 </div>
 
                 <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground/80 mb-2">
-                        Message *
-                    </label>
                     <textarea
                         id="message"
                         name="message"
@@ -168,7 +156,7 @@ export default function ContactForm() {
                         rows={6}
                         className={`w-full px-4 py-3 border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent transition-colors resize-vertical ${errors.message ? 'border-red-500' : 'border-border'
                             }`}
-                        placeholder="Tell me about your project, question, or just say hello!"
+                        placeholder="Let's talk tech, projects, gaming, doggos..."
                     />
                     {errors.message && (
                         <p className="mt-1 text-sm text-red-500">{errors.message}</p>

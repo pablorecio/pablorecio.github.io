@@ -58,10 +58,7 @@ export default function Hero() {
                             Staff Software Engineer
                         </p>
                         <p className="mx-auto max-w-[600px] md:text-lg text-foreground/70">
-                            Hey, I'm a software engineer based in Jerez de la Frontera, with 15 years of experience.
-                            My background is backend-heavy with Python, plus extensive data engineering expertise.
-                            I'm very product-minded, focusing on building solutions that deliver real business value,
-                            without forgetting software engineering best practices.
+                            Hi there! I'm a software engineer based in Andalusia with over 15 years of experience in backend development, data engineering and a bit of frontend sprinkled on top. I'm passionate about building products that make a real impact: practical, thoughtful, and always focused on delivering real value.
                         </p>
                     </div>
                     <div className="flex flex-col gap-4 sm:flex-row">

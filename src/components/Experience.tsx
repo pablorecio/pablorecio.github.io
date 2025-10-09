@@ -131,8 +131,8 @@ export default function Experience() {
                             role="button"
                             tabIndex={0}
                         >
-                            <div className="grid grid-cols-12 items-center">
-                                <div className="col-span-7 sm:col-span-9 flex items-center gap-4">
+                            <div className="flex sm:grid sm:grid-cols-12 items-center">
+                                <div className="flex-1 sm:col-span-9 flex items-center gap-4">
                                     <img
                                         src={experience.logo}
                                         alt={experience.company}
@@ -155,12 +155,12 @@ export default function Experience() {
                                         </span>
                                     </h3>
                                 </div>
-                                <div className="col-span-5 sm:col-span-3 flex items-center justify-between">
-                                    <div className={`work-badge ${experience.location.toLowerCase()}`}>
+                                <div className="sm:col-span-3 flex items-center justify-between">
+                                    <div className={`work-badge ${experience.location.toLowerCase()} hidden sm:block`}>
                                         {experience.location}
                                     </div>
                                     <div className="flex items-center gap-3">
-                                        <div className="inline-flex items-center px-2 py-1 text-sm font-semibold text-muted-foreground">
+                                        <div className="inline-flex items-center px-2 py-1 text-sm font-semibold text-muted-foreground hidden sm:block">
                                             {experience.period}
                                         </div>
                                         <button
@@ -178,6 +178,21 @@ export default function Experience() {
 
                             {openCard === index && (
                                 <div className="experience-content open">
+                                    {/* Mobile-only company website link and location pill */}
+                                    <div className="sm:hidden mb-4 flex items-center justify-between">
+                                        <a
+                                            href={experience.website}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="text-accent hover:text-accent/80 transition-colors inline-flex items-center gap-1 text-base"
+                                        >
+                                            {experience.website.replace('https://', '')}
+                                            <ExternalLink className="w-3 h-3" />
+                                        </a>
+                                        <div className={`work-badge ${experience.location.toLowerCase()}`}>
+                                            {experience.location}
+                                        </div>
+                                    </div>
                                     <div className="space-y-6 mt-6">
                                         {experience.positions.map((position, posIndex) => (
                                             <div key={posIndex} className="border-l-2 border-accent pl-4">

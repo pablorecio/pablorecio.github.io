@@ -7,6 +7,7 @@ import Experience from '@/components/Experience'
 import Skills from '@/components/Skills'
 import Hobbies from '@/components/Hobbies'
 import Contact from '@/components/Contact'
+import Footer from '@/components/Footer'
 
 export default function Home() {
     const [mounted, setMounted] = useState(false)
@@ -27,6 +28,7 @@ export default function Home() {
             <Skills />
             <Hobbies />
             <Contact />
+            <Footer />
         </main>
     )
 }
