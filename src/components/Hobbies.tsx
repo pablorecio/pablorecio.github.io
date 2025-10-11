@@ -6,7 +6,6 @@ import { Dumbbell, ChefHat, Gamepad2, Camera, Library, HandMetal } from 'lucide-
 
 interface Hobby {
     name: string
-    emoji: string
 }
 
 // Mapping hobby names to Lucide icons

@@ -55,10 +55,10 @@ export default function Hero() {
                             {displayedName}
                         </h1>
                         <p className="mx-auto max-w-[700px] text-xl md:text-2xl text-foreground/80">
-                            Staff Software Engineer
+                            <strong className="text-accent">Staff Software Engineer</strong>
                         </p>
                         <p className="mx-auto max-w-[600px] md:text-lg text-foreground/70">
-                            Hi there! I'm a software engineer based in Andalusia with over 15 years of experience in backend development, data engineering and a bit of frontend sprinkled on top. I'm passionate about building products that make a real impact: practical, thoughtful, and always focused on delivering real value.
+                            Hi there! I'm a software engineer based in Andalusia with over <strong className="text-accent">15 years</strong> of experience in <strong className="text-accent">backend</strong> development, <strong className="text-accent">data engineering</strong> and a bit of <strong className="text-accent">frontend</strong> sprinkled on top. I'm passionate about building products that make a <strong className="text-accent">real impact</strong>: practical, thoughtful, and always focused on delivering real value.
                         </p>
                     </div>
                     <div className="flex flex-col gap-4 sm:flex-row">
