@@ -58,10 +58,6 @@
             {
                 "name": "Python",
                 "icon": "/tools/python.svg"
-            },
-            {
-                "name": "Kafka",
-                "icon": "/tools/kafka.svg"
             }
         ]
     },

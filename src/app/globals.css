@@ -366,15 +366,6 @@
     border-radius: inherit;
 }
 
-.hobby-card:hover {
-    box-shadow: 0 0 20px hsl(var(--accent) / 0.15);
-    transform: translateY(-2px);
-}
-
-/* Hobbies text hover to accent in both themes */
-.hobby-card:hover span {
-    color: hsl(var(--accent));
-}
 
 /* Tech icon accent color for both themes */
 .tech-icon-accent {
@@ -385,13 +376,4 @@
 .dark .tech-icon-accent {
     /* Dark theme: neon green (#22FF88) */
     filter: brightness(0) saturate(100%) invert(73%) sepia(85%) saturate(468%) hue-rotate(83deg) brightness(103%) contrast(102%);
-}
-
-/* Small lift for emoji on hover */
-.hobby-card .text-4xl {
-    transition: transform 0.2s ease;
-}
-
-.hobby-card:hover .text-4xl {
-    transform: translateY(-3px);
 }

@@ -1,9 +1,14 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import type { MouseEvent as ReactMouseEvent, KeyboardEvent as ReactKeyboardEvent } from 'react'
-import { ChevronDown, Users, UserCheck, UserPlus } from 'lucide-react'
+import React, { useEffect, useState } from 'react'
+import { Users, UserCheck, UserPlus, Code, Server, Database, Palette } from 'lucide-react'
 import { api } from '@/services/api'
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from '@/components/ui/tooltip'
 
 interface SkillItem {
     name: string
@@ -14,6 +19,19 @@ interface SkillSection {
     title: string
     description?: string
     items: SkillItem[]
+}
+
+// Map skill categories to Lucide React icons
+const getCategoryIcon = (categoryTitle: string) => {
+    const iconMap: { [key: string]: React.ComponentType<any> } = {
+        'Backend': Code,
+        'Infrastructure': Server,
+        'Data & Product Analytics': Database,
+        'Frontend': Palette,
+        'Leadership & Mentoring': Users
+    }
+
+    return iconMap[categoryTitle]
 }
 
 // Map leadership skills to Lucide React icons
@@ -31,7 +49,6 @@ export default function Skills() {
     const [skillsData, setSkillsData] = useState<SkillSection[]>([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
-    const [openCard, setOpenCard] = useState<number | null>(0)
 
     useEffect(() => {
         const fetchSkills = async () => {
@@ -46,38 +63,6 @@ export default function Skills() {
         }
         fetchSkills()
     }, [])
-
-    useEffect(() => {
-        const lastOpenCard = localStorage.getItem('skills-open-card')
-        if (lastOpenCard !== null) {
-            setOpenCard(parseInt(lastOpenCard))
-        }
-    }, [])
-
-    const handleCardToggle = (index: number) => {
-        if (openCard === index) {
-            setOpenCard(null)
-            localStorage.setItem('skills-open-card', '-1')
-        } else {
-            setOpenCard(index)
-            localStorage.setItem('skills-open-card', index.toString())
-        }
-    }
-
-    const handleCardClick = (e: ReactMouseEvent<HTMLDivElement>, index: number) => {
-        const target = e.target as HTMLElement
-        if (target.closest('a') || target.closest('button')) return
-        handleCardToggle(index)
-    }
-
-    const handleCardKeyDown = (e: ReactMouseEvent<HTMLDivElement> | ReactKeyboardEvent<HTMLDivElement>, index: number) => {
-        if ('key' in e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault()
-                handleCardToggle(index)
-            }
-        }
-    }
 
     if (loading) {
         return (
@@ -121,68 +106,68 @@ export default function Skills() {
                         Skills
                     </h2>
                 </div>
-                <div className="space-y-8">
-                    {skillsData.map((section, index) => (
-                        <div
-                            key={section.title}
-                            className="experience-card rounded-lg border bg-card text-card-foreground shadow-sm p-6"
-                            onClick={(e) => handleCardClick(e, index)}
-                            onKeyDown={(e) => handleCardKeyDown(e, index)}
-                            role="button"
-                            tabIndex={0}
-                        >
-                            <div className="grid grid-cols-12 items-center">
-                                <div className="col-span-7 sm:col-span-9 flex items-center gap-4">
-                                    <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                                        {section.title}
-                                    </h3>
-                                </div>
-                                <div className="col-span-5 sm:col-span-3 flex items-center justify-end">
-                                    <button
-                                        onClick={() => handleCardToggle(index)}
-                                        className="experience-toggle text-accent font-size-1rem transition-none cursor-pointer flex-shrink-0"
-                                    >
-                                        <ChevronDown
-                                            className={`w-4 h-4 transition-transform ${openCard === index ? 'rotate-180' : ''}`}
-                                        />
-                                    </button>
-                                </div>
-                            </div>
 
-                            {openCard === index && (
-                                <div className="experience-content open">
-                                    <div className="mt-4 text-muted-foreground">
-                                        {section.description}
+                {/* Simple Skills Grid */}
+                <TooltipProvider>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {skillsData.map((section, index) => {
+                            const CategoryIcon = getCategoryIcon(section.title)
+
+                            return (
+                                <div
+                                    key={section.title}
+                                    className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 hover:shadow-md transition-shadow flex flex-col"
+                                >
+                                    {/* Category Header */}
+                                    <div className="flex items-center gap-3 mb-4">
+                                        {CategoryIcon && (
+                                            <CategoryIcon className="w-6 h-6 text-accent" />
+                                        )}
+                                        <h3 className="text-xl font-semibold leading-none tracking-tight">
+                                            {section.title}
+                                        </h3>
                                     </div>
-                                    <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 mt-6">
+
+                                    {/* Description */}
+                                    {section.description && (
+                                        <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                                            {section.description}
+                                        </p>
+                                    )}
+
+                                    {/* Skills Grid */}
+                                    <div className="grid grid-cols-4 gap-2 mt-auto">
                                         {section.items.map((item) => {
                                             const LeadershipIcon = getLeadershipIcon(item.name)
                                             return (
-                                                <div
-                                                    key={item.name}
-                                                    className="flex flex-col items-center space-y-3 p-6 rounded-lg border bg-card text-card-foreground"
-                                                >
-                                                    {LeadershipIcon ? (
-                                                        <LeadershipIcon className="w-12 h-12 text-accent" />
-                                                    ) : item.icon ? (
-                                                        <img
-                                                            src={item.icon}
-                                                            alt={item.name}
-                                                            width={48}
-                                                            height={48}
-                                                            className="w-12 h-12 tech-icon-accent"
-                                                        />
-                                                    ) : null}
-                                                    <span className="text-sm font-medium text-center text-accent">{item.name}</span>
-                                                </div>
+                                                <Tooltip key={item.name} delayDuration={200}>
+                                                    <TooltipTrigger asChild>
+                                                        <button className="flex items-center justify-center p-2 rounded-lg border bg-background/50 hover:bg-background/80 transition-colors cursor-pointer min-h-[40px] w-full">
+                                                            {LeadershipIcon ? (
+                                                                <LeadershipIcon className="w-4 h-4 text-accent" />
+                                                            ) : item.icon ? (
+                                                                <img
+                                                                    src={item.icon}
+                                                                    alt={item.name}
+                                                                    width={16}
+                                                                    height={16}
+                                                                    className="w-4 h-4 tech-icon-accent"
+                                                                />
+                                                            ) : null}
+                                                        </button>
+                                                    </TooltipTrigger>
+                                                    <TooltipContent side="top" className="z-50">
+                                                        <p className="text-sm font-medium">{item.name}</p>
+                                                    </TooltipContent>
+                                                </Tooltip>
                                             )
                                         })}
                                     </div>
                                 </div>
-                            )}
-                        </div>
-                    ))}
-                </div>
+                            )
+                        })}
+                    </div>
+                </TooltipProvider>
             </div>
         </section>
     )
